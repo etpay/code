@@ -33,53 +33,23 @@ if(isset($_POST['but_submit'])){
     <!-- CSS only -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
 
-    </head>
-    <body>
-        <div class="container">
-            <h3> Yesera Sew Payment System</h3>
-            <div class="tab-content">
-  <div class="tab-pane fade show active" id="pills-login" role="tabpanel" aria-labelledby="tab-login">
-    
-            <form method="post" action="">
-    <div class="form-group">
-        <label for="inputEmail">Username</label>
-        <input type="email" class="form-control" id="inputEmail" name="txt_uname" placeholder="Username">
-    </div>
-    <div class="form-group">
-        <label for="inputPassword">Password</label>
-        <input type="password" class="form-control" id="inputPassword"  name="txt_pwd"  placeholder="Password">
-    </div>
-   <!-- 2 column grid layout -->
-      <div class="row mb-4">
-        <div class="col-md-6 d-flex justify-content-center">
-          <!-- Checkbox -->
-          <div class="form-check mb-3 mb-md-0">
-            <input class="form-check-input" type="checkbox" value="" id="loginCheck" checked />
-            <label class="form-check-label" for="loginCheck"> Remember me </label>
-          </div>
-        </div>
-
-        <div class="col-md-6 d-flex justify-content-center">
-          <!-- Simple link -->
-          <a href="#!">Forgot password?</a>
-        </div>
-      </div>
-
+   </head>
+   <body>
+        <h4> Yesera Sew Payment System</h4>
+        <form method="post" action="">
+            <h2>Login</h2>
+        <input type="text" class="form-control"  name="txt_uname" placeholder="Username">
+        <input type="password" class="form-control" name="txt_pwd"  placeholder="Password">
       <!-- Submit button -->
-      <button type="submit" class="btn btn-primary btn-block mb-4">Sign in</button>
-
+      <div class="d-grid gap-2">
+      <button type="submit" class="btn btn-primary ">Sign in</button>
+            </div>
       <!-- Register buttons -->
       <div class="text-center">
         <p>Not a member? <a href="mobregister.php">Register</a></p>
       </div>
-</form>
-          
-                  
-         </div></div>               
-               
-        </div>
+    </form>     
    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
   </body>
-
 </html>
 
