@@ -36,9 +36,10 @@ if(isset($_POST['but_submit'])){
     </head>
     <body>
         <div class="container">
+            <h1> Yesera Sew Payment System</h1>
             <form method="post" action="">
                 <div id="div_login">
-                    <h1>Login Yesera Sew Payment System</h1>
+                    <h1>Login </h1>
                     
                         <input type="text" class="form-control" id="txt_uname" name="txt_uname" placeholder="Username" />
                   
