@@ -36,20 +36,44 @@ if(isset($_POST['but_submit'])){
     </head>
     <body>
         <div class="container">
-            <h1> Yesera Sew Payment System</h1>
+            <h3> Yesera Sew Payment System</h3>
             <form method="post" action="">
-                <div id="div_login">
-                    <h1>Login </h1>
-                    
-                        <input type="text" class="form-control" id="txt_uname" name="txt_uname" placeholder="Username" />
+    <div class="form-group">
+        <label for="inputEmail">Username</label>
+        <input type="email" class="form-control" id="inputEmail" name="txt_uname" placeholder="Username">
+    </div>
+    <div class="form-group">
+        <label for="inputPassword">Password</label>
+        <input type="password" class="form-control" id="inputPassword"  name="txt_pwd"  placeholder="Password">
+    </div>
+   <!-- 2 column grid layout -->
+      <div class="row mb-4">
+        <div class="col-md-6 d-flex justify-content-center">
+          <!-- Checkbox -->
+          <div class="form-check mb-3 mb-md-0">
+            <input class="form-check-input" type="checkbox" value="" id="loginCheck" checked />
+            <label class="form-check-label" for="loginCheck"> Remember me </label>
+          </div>
+        </div>
+
+        <div class="col-md-6 d-flex justify-content-center">
+          <!-- Simple link -->
+          <a href="#!">Forgot password?</a>
+        </div>
+      </div>
+
+      <!-- Submit button -->
+      <button type="submit" class="btn btn-primary btn-block mb-4">Sign in</button>
+
+      <!-- Register buttons -->
+      <div class="text-center">
+        <p>Not a member? <a href="mobregister.php">Register</a></p>
+      </div>
+</form>
+          
                   
-                        <input type="password" class="form-control" id="txt_uname" name="txt_pwd" placeholder="Password"/>
-                   
-                        <input type="submit" class="btn btn-success" value="Submit" name="but_submit" id="but_submit" />
-                        <a href="">Back</a> </br>
-                    
-                </div>
-            </form>
+                        
+               
         </div>
    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
   </body>
