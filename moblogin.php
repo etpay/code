@@ -37,6 +37,9 @@ if(isset($_POST['but_submit'])){
     <body>
         <div class="container">
             <h3> Yesera Sew Payment System</h3>
+            <div class="tab-content">
+  <div class="tab-pane fade show active" id="pills-login" role="tabpanel" aria-labelledby="tab-login">
+    
             <form method="post" action="">
     <div class="form-group">
         <label for="inputEmail">Username</label>
@@ -72,7 +75,7 @@ if(isset($_POST['but_submit'])){
 </form>
           
                   
-                        
+         </div></div>               
                
         </div>
    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
