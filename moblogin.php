@@ -43,7 +43,7 @@ if(isset($_POST['but_submit'])){
         <input type="password" class="form-control" name="txt_pwd"  placeholder="Password" required></br>
       <!-- Submit button -->
       <div class="d-grid gap-2">
-      <button type="submit" class="btn btn-primary ">Sign in</button></br>
+      <button type="submit" name="but_submit" class="btn btn-primary ">Sign in</button></br>
             </div>
       <!-- Register buttons -->
       <div class="text-center">
