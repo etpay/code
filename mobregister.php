@@ -1,33 +1,23 @@
 <?php
-include "config.php";
-
-
-if(isset($_POST['but_submit'])){
-
-    $uname = mysqli_real_escape_string($con,$_POST['txt_uname']);
-    $password = mysqli_real_escape_string($con,$_POST['txt_pwd']);
-$fname = mysqli_real_escape_string($con,$_POST['txt_fname']);
- $pnumber= mysqli_real_escape_string($con,$_POST['txt_pnumber']);
-  $email = mysqli_real_escape_string($con,$_POST['txt_email']);
-   $pbox= mysqli_real_escape_string($con,$_POST['txt_pbox']);
-   $adress= mysqli_real_escape_string($con,$_POST['txt_adress"']);
-
-    if ($uname != "" && $password != ""){
-        $sql_query = "select count(*) as cntUser from account where username='".$uname."' and password='".$password."'";
-        $result = mysqli_query($con,$sql_query);
-        $row = mysqli_fetch_array($result);
-
-        $count = $row['cntUser'];
-
-        if($count > 0){
-            $_SESSION['uname'] = $uname;
-            header('Location:mobindex.php');
-        }else{
-            echo "Invalid username and password";
-        }
-    }
-
-}
+if(isset($_POST['but_submit'])) {
+	require 'db.php';
+	try {
+		$query = "INSERT INTO `account` SET  `full_name`=?, `username`=?, `password`=?, `phone_number`=?, `email`=?, `po_box`=?, `addres`=?";
+		$stmt = $dbc->prepare($query);
+		$stmt->bindParam(1, $_POST['txt_fname']);
+		$stmt->bindParam(2, $_POST['txt_uname']);
+		$stmt->bindParam(3, $_POST['txt_pwd']);
+		$stmt->bindParam(4, $_POST['txt_pnumber']);
+		$stmt->bindParam(5, $_POST['txt_email']);
+		$stmt->bindParam(6, $_POST['txt_pbox']);
+		$stmt->bindParam(7, $_POST['txt_adress']);
+		if($stmt->execute()) {
+			echo "<script>alert('Account Registered.');location.href='moblogin.php'</script>";
+		} else {}
+	} catch(PDOException $e) {
+		echo "Error: " . $e->getMessage();
+	}
+} 
 ?>
 <!doctype html>
 <html lang="en">
