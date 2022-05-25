@@ -4,8 +4,34 @@ include 'auth_session.php';
 
 <html>
 <body>
-</br>
-<a href="mobcoment.php">Comment</a> </br>
+
+
+	<nav class="navbar navbar-expand-lg bg-light">
+  <div class="container-fluid">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <a class="navbar-brand" href="mobcoment.php">Comment</a>
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">Account</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="mobpartner.php">Partner</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link " href="mobpayment.php">Payment</a>
+        </li>
+	      <li class="nav-item">
+          <a class="nav-link disabled" href="moblogout.php">Log out</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+	<div class="table-responsive">
+
 <?php
  
 	require 'db.php';
@@ -13,7 +39,7 @@ include 'auth_session.php';
 	$query = "SELECT * FROM commit";
 	$stmt = $dbc->prepare($query);
 	$stmt->execute();
-	echo "<table border='1' cellpadding='5'>";
+	echo "<table class='table table-dark  table-hover'>";
 	echo "<tr>";
 	echo "<th>cu_id</th>";
 	echo "<th>name</th>";
@@ -67,6 +93,7 @@ include 'auth_session.php';
 	
 ?>
 	</table> </br>
+	</div>
 	
 </body>
 
