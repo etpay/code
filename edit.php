@@ -84,14 +84,14 @@ if(isset($_POST['submit_btn'])) {
                 $result = mysqli_query($con,"SELECT cu_id,name,partner FROM commit WHERE cu_id =".$_GET['cu_id']);
                 $row = mysqli_fetch_row($result);
             }
-		<div class="form-group">
+		
             echo ' <input class="form-control" type="hidden"  name="cu_id" value= ';
             echo $row[0];echo '/>
 	    </div></br>
-	    <div class="form-group">
+	    
             Full Name: <input class="form-control"  type="text"  name="fname" value=';
             echo $row[1];echo ' disabled/> </br>
-           </div></br> </br>
+           </br> </br>
             partner: <input type="text" name="ppartner" value=';
             echo $row[2];echo ' disabled/>';
             ?> </br>
