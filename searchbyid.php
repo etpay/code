@@ -45,7 +45,8 @@ include 'auth_session.php';
                     <p>Yesrasew payment system</p>
                 </div>	
     <form method="post">
-		<div class="form-group">
+		<div class="form-group"><br>
+			<br>
         <label>Search By Id</label>
         <input class="form-control" type="text" name="search">
 		</div><br>
