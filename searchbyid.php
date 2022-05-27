@@ -37,20 +37,12 @@ include 'auth_session.php';
 
 </head>
 <body>
-		<div class="container register-form">
-			<div class="container register-form">
-            <div class="form">
-                <div class="note">
-                    <p>Yesrasew payment system</p>
-                </div>
-
-                <div class="form-content">
-                    <div class="row">
-                        <div class="col-md-6">
-
+		
     <form method="post">
+		<div class="form-group">
         <label>Search By Id</label>
-        <input type="text" name="search">
+        <input class="form-control" type="text" name="search">
+		</div><br>
         <input type="submit" name="submit">
         <input type="submit" class="button" value="print" onClick="window.print()" />
         <a href="admin.php">Back</a> </br>
