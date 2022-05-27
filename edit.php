@@ -65,7 +65,7 @@ if(isset($_POST['submit_btn'])) {
     }
 } 
 ?>
-		div class="container register-form">
+		<div class="container register-form">
 			<div class="container register-form">
             <div class="form">
                 <div class="note">
