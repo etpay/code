@@ -49,8 +49,8 @@ include 'auth_session.php';
         <label>Search By Id</label>
         <input class="form-control" type="text" name="search">
 		</div><br>
-        <input type="submit" name="submit">
-        <input type="submit" class="button" value="print" onClick="window.print()" />
+        <input class="form-control" type="submit" name="submit">
+        <input class="form-control" type="submit" class="button" value="print" onClick="window.print()" />
         <a href="admin.php">Back</a> </br>
         </form>
         <?php
