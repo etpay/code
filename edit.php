@@ -58,7 +58,7 @@ if(isset($_POST['submit_btn'])) {
         $s->bindParam(1, $_POST['cu_id']);
         $s->execute();
         if($stmt->execute()) {
-            echo "<script>alert('New Month Payment Made.');location.href='index.php'</script>";
+            echo "<script>alert('New Month Payment Made.');location.href='admin.php'</script>";
         } else {}
     } catch(PDOException $e) {
         echo "Error: " . $e->getMessage();
