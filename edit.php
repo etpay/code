@@ -92,26 +92,26 @@ if(isset($_POST['submit_btn'])) {
             Full Name: <input class="form-control"  type="text"  name="fname" value=';
             echo $row[1];echo ' disabled/> </br>
            </br> </br>
-            partner: <input type="text" name="ppartner" value=';
+            partner: <input class="form-control" type="text" name="ppartner" value=';
             echo $row[2];echo ' disabled/>';
             ?> </br>
             </br>
-            electric: <input type="text" name="eelectric" /> </br>
+            electric: <input class="form-control" type="text" name="eelectric" /> </br>
             </br>
-            deadline: <input type="date" name="edeadline"  >
+            deadline: <input class="form-control" type="date" name="edeadline"  >
             </br>
-            telecom: <input type="text" name="ttelecom" /> </br>
+            telecom: <input class="form-control" type="text" name="ttelecom" /> </br>
             </br>
-            deadline: <input type="date" name="tdeadline"  >
+            deadline: <input class="form-control" type="date" name="tdeadline"  >
             </br>
-            water: <input type="text" name="wwater" /> </br>
+            water: <input class="form-control" type="text" name="wwater" /> </br>
             </br>
-            deadline: <input type="date" name="wdeadline"  >
+            deadline: <input class="form-control" type="date" name="wdeadline"  >
             </br>
             Change Paid status
-            <input type="number" name="deadline2"  >
+            <input class="form-control" type="number" name="deadline2"  >
             </br>
-            <input type="submit" name="submit_btn"/>
+            <input class="form-control" type="submit" name="submit_btn"/>
         </form>
     </body> 
 </html>
