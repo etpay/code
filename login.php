@@ -39,7 +39,7 @@ body {
                             </div>
                             <div class="form-group">
                                 <label for="password" class="text-info">Password:</label><br>
-                                <input type="text" name="txt_pwd" id="password" class="form-control">
+                                <input type="password" name="txt_pwd" id="password" class="form-control">
                             </div>
                             <div class="form-group">
                                 
