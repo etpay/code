@@ -20,17 +20,17 @@ include 'auth_session.php';
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <a class="navbar-brand" href="mobcoment.php">Comment</a>
+    <a class="navbar-brand" href="add.php">New payment</a>
     <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Account</a>
+          <a class="nav-link active" aria-current="page" href="searchbyid.php">search by id</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="mobpartner.php">Partner</a>
+          <a class="nav-link" href="searchbypartner.php">search by partner</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link " href="mobpayment.php">Payment</a>
+          <a class="nav-link " href="date.php">search by date</a>
         </li>
 	      <li class="nav-item">
           <a class="nav-link enabled" href="login.php">Log out</a>
