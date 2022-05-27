@@ -4,7 +4,37 @@ include 'auth_session.php';
 <!DOCTYPE html>
 <html>
 	<head>
+<style>
+.note
+{
+    text-align: center;
+    height: 80px;
+    background: -webkit-linear-gradient(left, #0072ff, #8811c5);
+    color: #fff;
+    font-weight: bold;
+    line-height: 80px;
+}
+.form-content
+{
+    padding: 5%;
+    border: 1px solid #ced4da;
+    margin-bottom: 2%;
+}
+.form-control{
+    border-radius:1.5rem;
+}
+.btnSubmit
+{
+    border:none;
+    border-radius:1.5rem;
+    padding: 1%;
+    width: 20%;
+    cursor: pointer;
+    background: #0062cc;
+    color: #fff;
+}
 
+</style>
 	</head>
 	<body>
 <?php
@@ -29,28 +59,53 @@ if(isset($_POST['submit_btn'])) {
 	}
 } 
 ?>
+		<div class="container register-form">
+			<div class="container register-form">
+            <div class="form">
+                <div class="note">
+                    <p>Yesrasew payment system</p>
+                </div>
+
+                <div class="form-content">
+                    <div class="row">
+                        <div class="col-md-6">
 
 		<form action="" method="POST">
-			Full Name: <input type="text" name="fname" required/> </br>
-			</br>
-			partner: <input type="text" name="ppartner" required/> </br>
-			</br>
-			electric: <input type="text" name="eelectric" /> </br>
+			<div class="form-group">
+			Full Name: <input  class="form-control" type="text" name="fname" required/> 
+				
+				</div><br>
+			
+			<div class="form-group">
+			partner: <input class="form-control" type="text" name="ppartner" required/> 
+			
+				</div><br>
+			<div class="form-group">
+			electric: <input class="form-control" type="text" name="eelectric" /> </br>
 
+			</div></br>
+						<div class="form-group">
+			deadline: <input class="form-control" type="date" name="edeadline" /> </br>
+			</div></br>
+				<div class="form-group">
+			telecom: <input  class="form-control"type="text" name="ttelecom" /> </br>
+			</div></br>
+			<div class="form-group">
+			deadline: <input class="form-control" type="date" name="tdeadline" /> </br>
+			</div></br>
+	<div class="form-group">
+			water: <input class="form-control" type="text" name="wwater"/> </br>
+			</div></br>
+<div class="form-group">
+			deadline: <input class="form-control" type="date" name="wdeadline"  required>
+			</div></br>
 			</br>
-			deadline: <input type="date" name="edeadline" /> </br>
-			</br>
-			telecom: <input type="text" name="ttelecom" /> </br>
-			</br>
-			deadline: <input type="date" name="tdeadline" /> </br>
-			</br>
-			water: <input type="text" name="wwater"/> </br>
-			</br>
-			deadline: <input type="date" name="wdeadline"  required>
-			</br>
-			</br>
-			<input type="submit" name="submit_btn"/>
-			<a href="index.php">Back</a> </br>
+<div class="form-group">
+			<input class="form-control"type="submit" name="submit_btn"/>
+	</div></br>
+<div class="form-group">
+			<a class="form-control" href="index.php">Back</a> </br>
+</div>
 		</form>
 	</body>
 
