@@ -99,18 +99,18 @@ if(isset($_POST['submit_btn'])) {
             electric: <input class="form-control" type="text" name="eelectric" /> </br>
             </br>
             deadline: <input class="form-control" type="date" name="edeadline"  >
-            </br>
+            </br></br>
             telecom: <input class="form-control" type="text" name="ttelecom" /> </br>
-            </br>
+            </br></br>
             deadline: <input class="form-control" type="date" name="tdeadline"  >
-            </br>
+            </br></br>
             water: <input class="form-control" type="text" name="wwater" /> </br>
-            </br>
+            </br></br>
             deadline: <input class="form-control" type="date" name="wdeadline"  >
-            </br>
+            </br></br>
             Change Paid status
             <input class="form-control" type="number" name="deadline2"  >
-            </br>
+            </br></br>
             <input class="form-control" type="submit" name="submit_btn"/>
         </form>
     </body> 
