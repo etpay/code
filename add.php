@@ -104,7 +104,7 @@ if(isset($_POST['submit_btn'])) {
 			<input class="form-control"type="submit" name="submit_btn"/>
 	</div></br>
 <div class="form-group">
-			<a class="form-control" href="index.php">Back</a> </br>
+			<a class="form-control" href="admin.php">Back</a> </br>
 </div>
 		</form>
 	</body>
