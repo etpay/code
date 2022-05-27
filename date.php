@@ -43,7 +43,7 @@ include 'auth_session.php';
                                         <input type="date" name="search" required value="<?php if(isset($_GET['search'])){echo $_GET['search']; } ?>" class="form-control" placeholder="Search data">
                                         <button type="submit" class="btn btn-primary">Search</button>
                                         <input type="submit" class="button" value="print" onClick="window.print()" />
-                                        <a href="index.php">Back</a> </br>
+                                        <a href="admin.php">Back</a> </br>
                                     </div>
                                     
     </div>
