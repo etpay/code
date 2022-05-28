@@ -51,11 +51,13 @@ if(isset($_POST['but_submit_elpa'])) {
      <button type="button" class="btn-close" aria-label="Close"></button>
    <?php
 include "config.php";    
-$sql_query = "select * from partner where cid=$_SESSION['cid']";
+$cid=$_SESSION['cid'];
+$sql_query = "select * from partner where cid='".$cid."'";
 $result = mysqli_query($con,$sql_query);
 $row = mysqli_fetch_array($result);
 
-$count = count($row);
+$count = ($row==null) ? 0 : count($row) ;
+
 
 if($count > 0){
    if ($row['type']==1) {
