@@ -21,9 +21,17 @@ $stmt->bindParam(4, $_POST['message']);
 }
 } 
 ?>
-<html>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
 
+   </head>
 <body>
+
 	<button type="button" class="btn-close" aria-label="Close"></button>
 <form action="" method="POST">
 Full Name: <input type="text" name="name" required/> </br>
@@ -39,5 +47,6 @@ Message: <input type="text" name="message" /> </br>
 <input type="submit" name="submit_btn"/>
 <a href="mob_index.php">Back</a> </br>
 </form>
-</body>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+  </body>
 </html>

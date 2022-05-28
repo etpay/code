@@ -1,6 +1,7 @@
 <?php
 if(isset($_POST['but_submit'])) {
 	require 'db.php';
+      session_start();
 	try {
 		$query = "INSERT INTO `account` SET  `full_name`=?, `username`=?, `password`=?, `phone_number`=?, `email`=?, `po_box`=?, `addres`=?";
 		$stmt = $dbc->prepare($query);

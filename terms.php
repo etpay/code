@@ -1,3 +1,14 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+
+   </head>
+<body>
+
 <button type="button" class="btn-close" aria-label="Close"></button>
 የስራ ሰው የባለሙያዎች አገልግሎት ኃ/የተ/የግ/ማህበር፤ 
 Yeserasew Professional Services PLC.
@@ -30,3 +41,6 @@ In addition to the service provider, Yesera sew Professional Services Plc, the p
 Payment right owners are institutions and individuals that use the service to collect a pre-determined type of payment from their identified customers. On the other hand individuals, institutions that agree to use the service to settle recurring payments are customers in payment obligation. Partners are Institutions that benefit directly or indirectly from the payment management service and agree with the service provider to be/act as partner of the service. . Commercial Banks, micro finance institutions and employers could be Partners of the service.
 ረ) አገልግሎቱ ዕውን የሚሆነው አገልግሎት አቅራቢው፣ የስራ ሰው ሙያዊ አገልግሎቶች ኃ/የተ/የግ/ማህበር ከላይ ከተገለፁት ባለድርሻ አካላት ጋር (በእየምድባቸው) በተናጠል በሚይዘው ተመሳሳይ ውል መሰረት ነው፡፡ ስለዚህ ይህ ስምምነት በአገልግሎቱ አቅራቢው ወይም ውል ሰጭ የስራ ሰው ሙያዊ አገልግሎቶች ኃ/የተ/የግ/ማህበር፣ አድራሻ አ.አ ቂርቆስ ከላይ በተገለፀው መሰረት የክፍያ ግዴታ/ዎች ባለቤት እና የአገልግሎቱ ገንዘብ ከፋይ ደንበኛ ከሚሆነው ከ-------------------------------------------------------ጋር የሚከተሉትን ዝርዝር ስምምነቶች አድርገዋል፡፡
 The service can be delivered using regular contracts that the service provider engages with each stakeholder in the aforementioned category.  Accordingly this contract, in detail is signed between the service provider’s Ye sera sew Professional Services Plc, (Adress----) and the person in payment obligations and payer customer of the service----------------------------- (Adress------) as follows.
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+  </body>
+</html>
