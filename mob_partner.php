@@ -48,7 +48,7 @@ if(isset($_POST['but_submit_elpa'])) {
 
    </head>
    <body>
-     <button type="button" class="btn-close" aria-label="Close"></button>
+     <a href="mob_index.php" class="btn-close" aria-label="Close"></a>
    <?php
 include "config.php";    
 $cid=$_SESSION['cid'];
@@ -118,10 +118,10 @@ if($count > 0){
       <div class="accordion-body">
 <form method="post" action="">  
         <input type="text" class="form-control"  name="o" placeholder="organization" required></br>
-        <input type="password" class="form-control" name="ob"  placeholder="Branch" required></br>
-        <input type="password" class="form-control" name="id"  placeholder="ID no" required></br>
+        <input type="text" class="form-control" name="ob"  placeholder="Branch" required></br>
+        <input type="text" class="form-control" name="id"  placeholder="ID no" required></br>
         <input type="text" class="form-control"  name="ofn" placeholder="Full Name" required></br>
-        <input type="email" class="form-control"  name="op" placeholder="Phone number" required></br>
+        <input type="text" class="form-control"  name="op" placeholder="Phone number" required></br>
       <!-- Submit button -->
       <div class="d-grid gap-2">
       <button type="submit" name="but_submit_elpa" class="btn btn-primary ">Add Partner</button></br>

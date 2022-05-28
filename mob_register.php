@@ -43,7 +43,7 @@ if(isset($_POST['but_submit'])) {
         <input type="text" class="form-control"  name="txt_pbox" placeholder="Po Box" required></br>
         <input type="text" class="form-control"  name="txt_adress" placeholder="Adress" required></br>
         <div class="form-check">
-  <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+  <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" required>
   <label class="form-check-label" for="flexCheckDefault">
     By clicking Register, you agree to our <a href="terms.php"> Terms and Conditions </a>
   </label>

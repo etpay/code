@@ -62,7 +62,44 @@ if(isset($_POST['but_submit_water'])) {
 
    </head>
    <body>
-	   <button type="button" class="btn-close" aria-label="Close"></button>
+	   <a href="mob_index.php" class="btn-close" aria-label="Close"></a>
+<div class="table-responsive">
+<?php
+
+	require 'db.php';
+	try {
+    $ty=['','Ethio Telecom','Elpa','Water'];
+    $cid=$_SESSION['cid'];
+	$query = "SELECT * FROM `payment` WHERE `cid`='".$cid."'";
+	$stmt = $dbc->prepare($query);
+	$stmt->execute();
+	echo "<table class='table table-dark  table-hover'>";
+	echo "<tr>";
+	echo "<th>Name</th>";
+	echo "<th>Account no</th>";
+	echo "<th>Contract or Service no</th>";
+	echo "<th>Addres</th>";
+	echo "<th>Type</th>";
+	echo "</tr>";
+	while($row=$stmt->fetch(PDO::FETCH_ASSOC)) {
+		extract($row);
+		 
+	echo "<tr>";
+	echo "<td>{$full_name}</td>";
+	echo "<td>{$account_no}</td>";
+	echo "<td>{$contract_service_no}</td>";
+	echo "<td>{$addres}</td>";
+	echo "<td>{$ty[$type]}</td>";
+	echo "</tr>";
+	}
+	} catch(PDOException $e) {
+		echo "Error: " . $e->getMessage();
+	}
+	
+?>
+	</table>
+	</div>
+	
 <div class="accordion" id="accordionExample">
   <div class="accordion-item">
     <h2 class="accordion-header" id="headingOne">
@@ -94,9 +131,9 @@ if(isset($_POST['but_submit_water'])) {
       <div class="accordion-body">
 <form method="post" action="">  
         <input type="text" class="form-control"  name="ck" placeholder="Customer Key" required></br>
-        <input type="password" class="form-control" name="ecn"  placeholder="Customer Name" required></br>
+        <input type="text" class="form-control" name="ecn"  placeholder="Customer Name" required></br>
         <input type="text" class="form-control"  name="cno" placeholder="Contract No" required></br>
-        <input type="email" class="form-control"  name="ead" placeholder="Adress" required></br>
+        <input type="text" class="form-control"  name="ead" placeholder="Adress" required></br>
       <!-- Submit button -->
       <div class="d-grid gap-2">
       <button type="submit" name="but_submit_elpa" class="btn btn-primary ">Add Payment</button></br>
@@ -114,9 +151,9 @@ if(isset($_POST['but_submit_water'])) {
       <div class="accordion-body">
 <form method="post" action="">  
      <input type="text" class="form-control"  name="wck" placeholder="Customer Key" required></br>
-        <input type="password" class="form-control" name="wcn"  placeholder="Customer Name" required></br>
+        <input type="text" class="form-control" name="wcn"  placeholder="Customer Name" required></br>
         <input type="text" class="form-control"  name="wcno" placeholder="Contract No" required></br>
-        <input type="email" class="form-control"  name="wad" placeholder="Adress" required></br>
+        <input type="text" class="form-control"  name="wad" placeholder="Adress" required></br>
       <!-- Submit button -->
       <div class="d-grid gap-2">
       <button type="submit" name="but_submit_water" class="btn btn-primary ">Add Payment</button></br>

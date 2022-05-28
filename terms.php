@@ -9,7 +9,7 @@
    </head>
 <body>
 
-<button type="button" class="btn-close" aria-label="Close"></button>
+<a href="mob_index.php" class="btn-close" aria-label="Close"></a>
 የስራ ሰው የባለሙያዎች አገልግሎት ኃ/የተ/የግ/ማህበር፤ 
 Yeserasew Professional Services PLC.
 የክፍያወች አስተዳደር አገልግሎት
