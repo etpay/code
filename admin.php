@@ -33,7 +33,7 @@ include 'auth_session.php';
           <a class="nav-link " href="date.php">search by date</a>
         </li>
 	      <li class="nav-item">
-          <a class="nav-link enabled" href="login.php">Log out</a>
+          <a class="nav-link enabled" href="logout.php">Log out</a>
         </li>
       </ul>
     </div>

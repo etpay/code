@@ -1,16 +1,17 @@
 <?php
+include 'mob_auth_session.php';
 if(isset($_POST['but_submit_ethio'])) {
 	require 'db.php';
 	try {
-		$query = "INSERT INTO `ethiotelecom` SET  `customer_key`=?, `service_no`=?, `customer_name`=?, `addres`=?, `uid`=?";
+    		$query = "INSERT INTO `payment` set `full_name`=?, `account_no`=?, `contract_service_no`=?, `addres`=?, `type`=1, `cid`=?";
 		$stmt = $dbc->prepare($query);
-		$stmt->bindParam(1, $_POST['can']);
-		$stmt->bindParam(2, $_POST['sn']);
-		$stmt->bindParam(3, $_POST['cn']);
+		$stmt->bindParam(1, $_POST['cn']);
+		$stmt->bindParam(2, $_POST['can']);
+		$stmt->bindParam(3, $_POST['sn']);
 		$stmt->bindParam(4, $_POST['ad']);
-		$stmt->bindParam(5, 1);
+		$stmt->bindParam(5, $_SESSION['cid']);
 		if($stmt->execute()) {
-			echo "<script>alert('Payment Registered.');location.href='mobindex.php'</script>";
+			echo "<script>alert('Payment Registered.');location.href='mob_index.php'</script>";
 		} else {}
 	} catch(PDOException $e) {
 		echo "Error: " . $e->getMessage();
@@ -19,18 +20,16 @@ if(isset($_POST['but_submit_ethio'])) {
 if(isset($_POST['but_submit_elpa'])) {
 	require 'db.php';
 	try {
-		$query = "INSERT INTO `elpa`SET  `customer_key`=?, `reading_no`=?, `customer_name`=?, `contract_no`=?, `block`=?, `ordinal`=?, `book`=?, `uid`=?";
+		$query = "INSERT INTO `payment` set `full_name`=?, `account_no`=?, `contract_service_no`=?, `addres`=?, `type`=2, `cid`=?";
 			
 		$stmt = $dbc->prepare($query);
-		$stmt->bindParam(1, $_POST['ck']);
-		$stmt->bindParam(2, $_POST['rn']);
-		$stmt->bindParam(3, $_POST['ecn']);
-		$stmt->bindParam(4, $_POST['bl']);
-		$stmt->bindParam(5, $_POST['or']);
-		$stmt->bindParam(6, $_POST['bo']);
-		$stmt->bindParam(7, 1);
+		$stmt->bindParam(1, $_POST['ecn']);
+		$stmt->bindParam(2, $_POST['ck']);
+		$stmt->bindParam(3, $_POST['cno']);
+		$stmt->bindParam(4, $_POST['ead']);
+		$stmt->bindParam(5, $_SESSION['cid']);
 		if($stmt->execute()) {
-			echo "<script>alert('Payment Registered.');location.href='mobindex.php'</script>";
+			echo "<script>alert('Payment Registered.');location.href='mob_index.php'</script>";
 		} else {}
 	} catch(PDOException $e) {
 		echo "Error: " . $e->getMessage();
@@ -39,17 +38,14 @@ if(isset($_POST['but_submit_elpa'])) {
 if(isset($_POST['but_submit_water'])) {
 	require 'db.php';
 	try {
-		$query = "INSERT INTO `warer` SET  `customer_key`=?, `reading_no`=?, `customer_name`=?, `contract_no`=?, `block`=?, `ordinal`=?, `book`=?, `uid`=?";
+    		$query = "INSERT INTO `payment` set `full_name`=?, `account_no`=?, `contract_service_no`=?, `addres`=?, `type`=?, `cid`=?";
 		$stmt = $dbc->prepare($query);
-		$stmt->bindParam(1, $_POST['wck']);
-		$stmt->bindParam(2, $_POST['wrn']);
-		$stmt->bindParam(3, $_POST['wcn']);
-		$stmt->bindParam(4, $_POST['wbl']);
-		$stmt->bindParam(5, $_POST['wor']);
-		$stmt->bindParam(6, $_POST['wbo']);
-		$stmt->bindParam(7, 1);
+		$stmt->bindParam(1, $_POST['wcn']);
+		$stmt->bindParam(2, $_POST['wck']);
+		$stmt->bindParam(3, $_POST['wcno']);
+		$stmt->bindParam(4, $_POST['wad']);
 		if($stmt->execute()) {
-			echo "<script>alert('Payment Registered.');location.href='mobindex.php'</script>";
+			echo "<script>alert('Payment Registered.');location.href='mob_index.php'</script>";
 		} else {}
 	} catch(PDOException $e) {
 		echo "Error: " . $e->getMessage();
@@ -66,7 +62,7 @@ if(isset($_POST['but_submit_water'])) {
 
    </head>
    <body>
-	   
+	   <button type="button" class="btn-close" aria-label="Close"></button>
 <div class="accordion" id="accordionExample">
   <div class="accordion-item">
     <h2 class="accordion-header" id="headingOne">
@@ -98,11 +94,9 @@ if(isset($_POST['but_submit_water'])) {
       <div class="accordion-body">
 <form method="post" action="">  
         <input type="text" class="form-control"  name="ck" placeholder="Customer Key" required></br>
-        <input type="text" class="form-control"  name="rn" placeholder="Reading No" required></br>
         <input type="password" class="form-control" name="ecn"  placeholder="Customer Name" required></br>
-        <input type="text" class="form-control"  name="bl" placeholder="Block" required></br>
-        <input type="email" class="form-control"  name="or" placeholder="Ordinal" required></br>
-        <input type="text" class="form-control"  name="bo" placeholder="Book" required></br>
+        <input type="text" class="form-control"  name="cno" placeholder="Contract No" required></br>
+        <input type="email" class="form-control"  name="ead" placeholder="Adress" required></br>
       <!-- Submit button -->
       <div class="d-grid gap-2">
       <button type="submit" name="but_submit_elpa" class="btn btn-primary ">Add Payment</button></br>
@@ -119,12 +113,10 @@ if(isset($_POST['but_submit_water'])) {
     <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
       <div class="accordion-body">
 <form method="post" action="">  
-        <input type="text" class="form-control"  name="wck" placeholder="Customer Key" required></br>
-        <input type="text" class="form-control"  name="wrn" placeholder="Reading No" required></br>
+     <input type="text" class="form-control"  name="wck" placeholder="Customer Key" required></br>
         <input type="password" class="form-control" name="wcn"  placeholder="Customer Name" required></br>
-        <input type="text" class="form-control"  name="wbl" placeholder="Block" required></br>
-        <input type="email" class="form-control"  name="wor" placeholder="Ordinal" required></br>
-        <input type="text" class="form-control"  name="wbo" placeholder="Book" required></br>
+        <input type="text" class="form-control"  name="wcno" placeholder="Contract No" required></br>
+        <input type="email" class="form-control"  name="wad" placeholder="Adress" required></br>
       <!-- Submit button -->
       <div class="d-grid gap-2">
       <button type="submit" name="but_submit_water" class="btn btn-primary ">Add Payment</button></br>

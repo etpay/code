@@ -12,7 +12,7 @@ if(isset($_POST['but_submit'])) {
 		$stmt->bindParam(6, $_POST['txt_pbox']);
 		$stmt->bindParam(7, $_POST['txt_adress']);
 		if($stmt->execute()) {
-			echo "<script>alert('Account Registered.');location.href='moblogin.php'</script>";
+			echo "<script>alert('Account Registered.');location.href='mob_login.php'</script>";
 		} else {}
 	} catch(PDOException $e) {
 		echo "Error: " . $e->getMessage();
@@ -41,13 +41,20 @@ if(isset($_POST['but_submit'])) {
         <input type="email" class="form-control"  name="txt_email" placeholder="Email" required></br>
         <input type="text" class="form-control"  name="txt_pbox" placeholder="Po Box" required></br>
         <input type="text" class="form-control"  name="txt_adress" placeholder="Adress" required></br>
+        <div class="form-check">
+  <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+  <label class="form-check-label" for="flexCheckDefault">
+    By clicking Register, you agree to our <a href="terms.php"> Terms and Conditions </a>
+  </label>
+</div>
+
       <!-- Submit button -->
       <div class="d-grid gap-2">
       <button type="submit" name="but_submit" class="btn btn-primary ">Register</button></br>
             </div>
       <!-- Register buttons -->
       <div class="text-center">
-        <p>Already a member? <a href="mobregister.php">Login</a></p>
+        <p>Already a member? <a href="mob_register.php">Login</a></p>
       </div>
     </form>    
 </div>
