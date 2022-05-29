@@ -9,41 +9,40 @@ include 'mob_auth_session.php';
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- CSS only -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
-
    </head>
 <body>
-<div class="accordion" id="accordionExample">
-  <div class="accordion-item">
-    <h2 class="accordion-header" id="headingOne">
-      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
-        Menu
-</button>
-    </h2>
-    <div id="collapseOne" class="accordion-collapse collapse " aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-      <div class="accordion-body">
-<ul class="navbar-nav me-auto mb-2 mb-lg-0">
 
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Account</a>
+<div class="collapse" id="navbarToggleExternalContent">
+  <div class="bg-dark p-4">
+    <h5 class="text-white h4">Collapsed content</h5>
+	<ul class="navbar-nav ">
+
+        <li class="nav-item ">
+          <a class="nav-link  text-white"  href="#">Account</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="mob_partner.php">Partner</a>
+        <li class="nav-item ">
+          <a class="nav-link text-white" href="mob_partner.php">Partner</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link " href="mob_payment.php">Payment</a>
+        <li class="nav-item ">
+          <a class="nav-link  text-white" href="mob_payment.php">Payment</a>
+        </li> 
+		<li class="nav-item ">
+          <a class="nav-link text-white" href="mob_coment.php">Comment</a>
         </li>
-	      <li class="nav-item">
-          <a class="navbar-brand" href="mob_coment.php">Comment</a>
+	      <li class="nav-item ">
+          <a class="nav-link  text-white" href="mob_logout.php">Log out</a>
         </li>
-        </li>
-	      <li class="nav-item">
-          <a class="nav-link " href="mob_logout.php">Log out</a>
-        </li>
-      </ul>
+     </ul>
+    <span class="text-muted">Toggleable via the navbar brand.</span>
+  </div>
 </div>
-</div>
-</div>
-</div>
+<nav class="navbar navbar-dark bg-dark">
+  <div class="container-fluid">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  </div>
+</nav>
 
 	<!-- <nav class="navbar navbar-expand-lg bg-light">
   <div class="container-fluid">
