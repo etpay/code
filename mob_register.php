@@ -55,7 +55,7 @@ if(isset($_POST['but_submit'])) {
             </div>
       <!-- Register buttons -->
       <div class="text-center">
-        <p>Already a member? <a href="mob_register.php">Login</a></p>
+        <p>Already a member? <a href="mob_login.php">Login</a></p>
       </div>
     </form>    
 </div>

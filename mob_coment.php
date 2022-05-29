@@ -33,6 +33,7 @@ $stmt->bindParam(4, $_POST['message']);
 <body>
 
 	<a href="mob_index.php" class="btn-close " aria-label="Close"></a>
+  <h2>Give a Comment</a>
 <div  class="container-sm"> 
 	<form action="" method="POST">
  <input type="text" class="form-control" name="name" placeholder="Full Name"required/> </br>
