@@ -12,64 +12,27 @@ include 'mob_auth_session.php';
    </head>
 <body>
 
-<div class="collapse" id="navbarToggleExternalContent">
-  <div class="bg-dark p-4">
-    <h5 class="text-white h4">Collapsed content</h5>
-	<ul class="navbar-nav ">
+<table class='table table-sm  table-hover'>
+	<tr>
 
-        <li class="nav-item ">
-          <a class="nav-link  text-white"  href="#">Account</a>
-        </li>
-        <li class="nav-item ">
-          <a class="nav-link text-white" href="mob_partner.php">Partner</a>
-        </li>
-        <li class="nav-item ">
-          <a class="nav-link  text-white" href="mob_payment.php">Payment</a>
-        </li> 
-		<li class="nav-item ">
-          <a class="nav-link text-white" href="mob_coment.php">Comment</a>
-        </li>
-	      <li class="nav-item ">
-          <a class="nav-link  text-white" href="mob_logout.php">Log out</a>
-        </li>
-     </ul>
-    <span class="text-muted">Toggleable via the navbar brand.</span>
-  </div>
-</div>
-<nav class="navbar navbar-dark bg-dark">
-  <div class="container-fluid">
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-  </div>
-</nav>
-
-	<!-- <nav class="navbar navbar-expand-lg bg-light">
-  <div class="container-fluid">
-    <a class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-</a>
-    <a class="navbar-brand" href="mob_coment.php">Comment</a>
-    <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
-		
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Account</a>
-        </li>
-        <li class="nav-item">
+        <th >
+          <a class="nav-link "  href="#">Account</a>
+        </th>
+        <th >
           <a class="nav-link" href="mob_partner.php">Partner</a>
-        </li>
-        <li class="nav-item">
+        </th>
+        <th >
           <a class="nav-link " href="mob_payment.php">Payment</a>
-        </li>
-	      <li class="nav-item">
+        </th> 
+		<th >
+          <a class="nav-link" href="mob_coment.php">Comment</a>
+        </th>
+	      <th >
           <a class="nav-link " href="mob_logout.php">Log out</a>
-        </li>
-      </ul>
-    </div>
-  </div>
-</nav> -->
+        </th>
+</tr>
+  
+
 	<div class="table-responsive">
 
 <?php
