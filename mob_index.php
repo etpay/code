@@ -12,16 +12,49 @@ include 'mob_auth_session.php';
 
    </head>
 <body>
+<div class="accordion" id="accordionExample">
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="headingOne">
+      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+        <span class="navbar-toggler-icon">
+      </button>
+    </h2>
+    <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+      <div class="accordion-body">
+<ul class="navbar-nav me-auto mb-2 mb-lg-0">
 
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">Account</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="mob_partner.php">Partner</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link " href="mob_payment.php">Payment</a>
+        </li>
+	      <li class="nav-item">
+          <a class="navbar-brand" href="mob_coment.php">Comment</a>
+        </li>
+        </li>
+	      <li class="nav-item">
+          <a class="nav-link " href="mob_logout.php">Log out</a>
+        </li>
+      </ul>
+</div>
+</div>
+</div>
+</div>
 
-	<nav class="navbar navbar-expand-lg bg-light">
+	<!-- <nav class="navbar navbar-expand-lg bg-light">
   <div class="container-fluid">
     <a class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
 </a>
     <a class="navbar-brand" href="mob_coment.php">Comment</a>
     <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+		
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="#">Account</a>
         </li>
@@ -37,7 +70,7 @@ include 'mob_auth_session.php';
       </ul>
     </div>
   </div>
-</nav>
+</nav> -->
 	<div class="table-responsive">
 
 <?php
