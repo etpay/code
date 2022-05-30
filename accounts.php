@@ -1,3 +1,4 @@
+
 <?php
 include 'auth_session.php';
 ?>
@@ -17,6 +18,18 @@ include 'auth_session.php';
 				$query = "SELECT * FROM account";
 				$stmt = $dbc->prepare($query);
 				$stmt->execute();
+     echo "<table class='table table-dark  table-hover'>";
+	echo "<tr>";
+	echo "<th>full_name</th>";
+	echo "<th>username</th>";
+	echo "<th>phone_number</th>";
+	echo "<th>email</th>";
+	
+	echo "<th>po_box</th>";
+	echo "<th>addres</th>";
+	echo "<th>registration_date</th>";
+	
+	
 				echo "<table border='1' cellpadding='5'>";
 				
 				while($row=$stmt->fetch(PDO::FETCH_ASSOC)) {
