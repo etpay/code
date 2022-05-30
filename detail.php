@@ -49,12 +49,11 @@ include 'auth_session.php';
 		}else{
 		echo '<h3>No partner selected</h3>';}
 	
- echo '<div class="table-responsive">
-        <h1>Payment</h1>';
-
-
-	require 'db.php';
-	try {
+		
+		
+		require 'db.php';
+		try {
+		echo '<div class="table-responsive">';
     $ty=['','Ethio Telecom','Elpa','Water'];
     $cid=$_GET['uid'];
 	$query = "SELECT * FROM `payment` WHERE `cid`='".$cid."'";
@@ -79,13 +78,13 @@ include 'auth_session.php';
 	echo "<td>{$ty[$type]}</td>";
 	echo "</tr>";
 	}
+	echo "</table></div";
 	} catch(PDOException $e) {
 		echo "Error: " . $e->getMessage();
 	}
 }
 ?>
-	</table>
-	</div>
+	
  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
   </body>
 </html>
