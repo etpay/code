@@ -29,6 +29,9 @@ include 'auth_session.php';
         <li class="nav-item">
           <a class="nav-link" href="searchbypartner.php">search by partner</a>
         </li>
+	      <li class="nav-item">
+          <a class="nav-link" href="accounts.php">accounts</a>
+        </li>
         <li class="nav-item">
           <a class="nav-link " href="date.php">search by date</a>
         </li>
