@@ -75,7 +75,7 @@ if(isset($_POST['but_submit'])){
             $_SESSION['uname'] = $uname;
             header('Location:admin.php');
         }else{
-           echo "<script>alert('Not to meet with credentials.')</script>";
+           echo "<script>alert('Not meet with credentials.')</script>";
         }
 
     }
