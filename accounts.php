@@ -30,7 +30,7 @@ include 'auth_session.php';
 	echo "<th>registration_date</th>";
 	
 	
-				echo "<table border='1' cellpadding='5'>";
+				echo "<table class='table table-dark  table-hover'>";
 				
 				while($row=$stmt->fetch(PDO::FETCH_ASSOC)) {
 					extract($row);
