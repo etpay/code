@@ -27,10 +27,7 @@ include 'auth_session.php';
 	
 	echo "<th>po_box</th>";
 	echo "<th>addres</th>";
-	echo "<th>registration_date</th>";
-	
-	
-				echo "<table class='table table-dark  table-hover'>";
+	echo "<th>registration_date</th> </tr>";
 				
 				while($row=$stmt->fetch(PDO::FETCH_ASSOC)) {
 					extract($row);
