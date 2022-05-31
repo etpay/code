@@ -32,12 +32,13 @@ if(isset($_POST['but_submit'])) {
    <body></br>
     <div  class="container-sm"> 
         <h5 class="text-center"> Yesera Sew Payment System</h5></br>
-        <form method="post" action="">
+        <form method="post" action=""  oninput='txt_pwd2.setCustomValidity(txt_pwd2.value != txt_pwd.value ? "Passwords do not match." : "")'>
             <h2 class="text-center"> Register </h2></br>
   
         <input type="text" class="form-control"  name="txt_fname" placeholder="Full Name" required></br>
         <input type="text" class="form-control"  name="txt_uname" placeholder="Username" required></br>
         <input type="password" class="form-control" name="txt_pwd"  placeholder="Password" required></br>
+        <input type="password" class="form-control" name="txt_pwd2"  placeholder="Conferm Password" required></br>        
         <input type="text" class="form-control"  name="txt_pnumber" placeholder="Phone number" required></br>
         <input type="email" class="form-control"  name="txt_email" placeholder="Email" required></br>
         <input type="text" class="form-control"  name="txt_pbox" placeholder="Po Box" required></br>

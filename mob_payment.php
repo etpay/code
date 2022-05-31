@@ -61,8 +61,9 @@ if(isset($_POST['but_submit_water'])) {
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
 
    </head>
-   <body>
-	   <a href="mob_index.php" class="btn-close" aria-label="Close"></a>
+   <body></br>
+	   <a href="mob_index.php" class="btn-close text-center px-2" aria-label="Close"></a></br>
+	   <div class="container">
 <div class="table-responsive">
 <?php
 
@@ -99,16 +100,10 @@ if(isset($_POST['but_submit_water'])) {
 ?>
 	</table>
 	</div>
+	</div>
 	
-<div class="accordion" id="accordionExample">
-  <div class="accordion-item">
-    <h2 class="accordion-header" id="headingOne">
-      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-        Ethio Telecom
-      </button>
-    </h2>
-    <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-      <div class="accordion-body">
+<div class="container">
+    <h2 class="text-center"> Ethio Telecom  </h2>
 <form method="post" action="">  
         <input type="text" class="form-control"  name="can" placeholder="Customer Account No." required></br>
         <input type="text" class="form-control"  name="sn" placeholder="Service No." required></br>
@@ -118,17 +113,9 @@ if(isset($_POST['but_submit_water'])) {
       <div class="d-grid gap-2">
       <button type="submit" name="but_submit_ethio" class="btn btn-primary ">Add Payment</button></br>
             </div>
-    </form>       </div>
-    </div>
-  </div>
-  <div class="accordion-item">
-    <h2 class="accordion-header" id="headingTwo">
-      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-       Elpa
-      </button>
-    </h2>
-    <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
-      <div class="accordion-body">
+    </form>  </div>
+ <div class="container">
+    <h2 class="text-center">Elpa </h2>
 <form method="post" action="">  
         <input type="text" class="form-control"  name="ck" placeholder="Customer Key" required></br>
         <input type="text" class="form-control" name="ecn"  placeholder="Customer Name" required></br>
@@ -138,17 +125,9 @@ if(isset($_POST['but_submit_water'])) {
       <div class="d-grid gap-2">
       <button type="submit" name="but_submit_elpa" class="btn btn-primary ">Add Payment</button></br>
             </div>
-    </form>       </div>
-    </div>
-  </div>
-  <div class="accordion-item">
-    <h2 class="accordion-header" id="headingThree">
-      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-        Water
-      </button>
+    </form>   </div><div class="container">
+    <h2 class="text-center">Water
     </h2>
-    <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
-      <div class="accordion-body">
 <form method="post" action="">  
      <input type="text" class="form-control"  name="wck" placeholder="Customer Key" required></br>
         <input type="text" class="form-control" name="wcn"  placeholder="Customer Name" required></br>
@@ -157,13 +136,7 @@ if(isset($_POST['but_submit_water'])) {
       <!-- Submit button -->
       <div class="d-grid gap-2">
       <button type="submit" name="but_submit_water" class="btn btn-primary ">Add Payment</button></br>
-            </div>
-    </form>       </div>
-    </div>
-  </div>
-</div>
-
-
+       </div></form></div>
    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
   </body>
 </html>
