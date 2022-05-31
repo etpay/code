@@ -89,17 +89,11 @@ if($count > 0){
    
 }else{
 ?>
-    <div  class="container-sm"> 
+
         <h5 class="text-center"> Yesera Sew Payment System</h5></br>
-       <div class="accordion" id="accordionExample">
-  <div class="accordion-item">
-    <h2 class="accordion-header" id="headingOne">
-      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-        Bank
-      </button>
-    </h2>
-    <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-      <div class="accordion-body">
+       <div class="container">
+    <h2 class="text-center" >  Bank    </h2>
+    
 <form method="post" action="">  
         <input type="text" class="form-control"  name="b" placeholder="Bank" required></br>
         <input type="text" class="form-control"  name="bb" placeholder="Branch" required></br>
@@ -111,16 +105,10 @@ if($count > 0){
       <button type="submit" name="but_submit_ethio" class="btn btn-primary ">Add Partner</button></br>
             </div>
     </form>       </div>
-    </div>
-  </div>
-  <div class="accordion-item">
-    <h2 class="accordion-header" id="headingTwo">
-      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-       Employer
-      </button>
-    </h2>
-    <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
-      <div class="accordion-body">
+  
+  <div class="container">
+    <h2 class="text-center" >Employer    </h2>
+   
 <form method="post" action="">  
         <input type="text" class="form-control"  name="o" placeholder="organization" required></br>
         <input type="text" class="form-control" name="ob"  placeholder="Branch" required></br>
@@ -132,10 +120,8 @@ if($count > 0){
       <button type="submit" name="but_submit_elpa" class="btn btn-primary ">Add Partner</button></br>
             </div>
     </form>       </div>
-    </div>
-  </div>
-  </div>
-</div>
+
+
 <?php
 }?>
 </div>

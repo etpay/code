@@ -39,7 +39,8 @@ include 'mob_auth_session.php';
  
 	require 'db.php';
 	try {
-	$query = "SELECT * FROM commit";
+$cid=$_SESSION['cid'];
+	$query = "SELECT * FROM commit where uid='".$cid."'";
 	$stmt = $dbc->prepare($query);
 	$stmt->execute();
 	echo "<table class='table table-dark  table-hover'>";

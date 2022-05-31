@@ -13,7 +13,7 @@ if(isset($_POST['but_submit'])){
         $result = mysqli_query($con,$sql_query);
         $row = mysqli_fetch_array($result);
 
-        $count = count($row);
+    $count = ($row==null) ? 0 : count($row) ;
 
         if($count > 0){
             $_SESSION['uname'] = $uname;
