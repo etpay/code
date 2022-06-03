@@ -7,7 +7,7 @@ if(isset($_POST['but_submit'])){
     $uname = mysqli_real_escape_string($con,$_POST['txt_uname']);
     $pass = mysqli_real_escape_string($con,$_POST['txt_pwd']);
 
-$password=password_hash($pass, PASSWORD_DEFAULT);
+$password=md5($pass);
     if ($uname != "" && $password != ""){
         $sql_query = "select uid from account where username='".$uname."' and password='".$password."'";
         $result = mysqli_query($con,$sql_query);

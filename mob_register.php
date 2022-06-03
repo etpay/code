@@ -7,7 +7,7 @@ if(isset($_POST['but_submit'])) {
 		$stmt = $dbc->prepare($query);
 		$stmt->bindParam(1, $_POST['txt_fname']);
 		$stmt->bindParam(2, $_POST['txt_uname']);
-		$stmt->bindParam(3,password_hash($_POST['txt_pwd'], PASSWORD_DEFAULT)); 
+		$stmt->bindParam(3,md5($_POST['txt_pwd'])); 
 		$stmt->bindParam(4, $_POST['txt_pnumber']);
 		$stmt->bindParam(5, $_POST['txt_email']);
 		$stmt->bindParam(6, $_POST['txt_pbox']);
