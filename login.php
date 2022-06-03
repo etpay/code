@@ -60,20 +60,28 @@ include "config.php";
 if(isset($_POST['but_submit'])){
 
     $uname = mysqli_real_escape_string($con,$_POST['txt_uname']);
-    $password = mysqli_real_escape_string($con,$_POST['txt_pwd']);
+    $pass = mysqli_real_escape_string($con,$_POST['txt_pwd']);
+    $password = md5($pass);
 
 
     if ($uname != "" && $password != ""){
 
-        $sql_query = "select count(*) as cntUser from users where username='".$uname."' and password='".$password."'";
+        $sql_query = "select role from users where username='".$uname."' and password='".$password."'";
         $result = mysqli_query($con,$sql_query);
         $row = mysqli_fetch_array($result);
 
-        $count = $row['cntUser'];
+       $count = ($row==null) ? 0 : count($row) ;
 
         if($count > 0){
-            $_SESSION['uname'] = $uname;
-            header('Location:admin.php');
+            
+            if ($row['role']=='Admin') {
+                 $_SESSION['uname'] = $uname;
+                header('Location:register.php');
+            } else {
+                $_SESSION['uname'] = $uname;
+                header('Location:admin.php');
+            }
+            
         }else{
            echo "<script>alert('Not meet with credentials.')</script>";
         }
