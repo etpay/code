@@ -5,9 +5,9 @@ include "config.php";
 if(isset($_POST['but_submit'])){
 
     $uname = mysqli_real_escape_string($con,$_POST['txt_uname']);
-    $password = mysqli_real_escape_string($con,$_POST['txt_pwd']);
+    $pass = mysqli_real_escape_string($con,$_POST['txt_pwd']);
 
-
+$password=password_hash($pass, PASSWORD_DEFAULT);
     if ($uname != "" && $password != ""){
         $sql_query = "select uid from account where username='".$uname."' and password='".$password."'";
         $result = mysqli_query($con,$sql_query);
