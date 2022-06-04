@@ -1,5 +1,8 @@
 <?php
-    session_start();
+    session_start([
+    'cookie_httponly' => true,
+    'cookie_secure' => true
+]);
 include "config.php";
 
 if(isset($_POST['but_submit'])){

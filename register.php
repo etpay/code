@@ -1,7 +1,10 @@
 <?php
 if(isset($_POST['but_submit'])) {
 	require 'db.php';
-      session_start();
+      session_start([
+    'cookie_httponly' => true,
+    'cookie_secure' => true
+]);
 	try {
     $pass=md5($_POST['txt_pwd']);
 		$query = "INSERT INTO `users` SET  `name`=?, `username`=?, `password`=?";
