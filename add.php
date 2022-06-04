@@ -52,7 +52,7 @@ if(isset($_POST['submit_btn'])) {
 		$stmt->bindParam(7, $_POST['wwater']);
 		$stmt->bindParam(8, $_POST['wdeadline']);
 		if($stmt->execute()) {
-			echo "<script>alert('New Payment Saved.');location.href='index.php'</script>";
+			echo "<script>alert('New Payment Saved.');location.href='admin.php'</script>";
 		} else {}
 	} catch(PDOException $e) {
 		echo "Error: " . $e->getMessage();
