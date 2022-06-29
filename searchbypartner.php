@@ -85,7 +85,7 @@ include 'auth_session.php';
                                         else
                                         {
                                             ?>
-                                                <tr>
+                                                <tr>r
                                                     <td colspan="4">No Record Found</td>
                                                 </tr>
                                             <?php
