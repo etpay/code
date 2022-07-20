@@ -3,7 +3,7 @@ include 'mob_auth_session.php';
 
 
 if(isset($_POST['submit_btn'])) {
-require '../db.php';
+require '../db/db.php';
 try {
 $query = "insert into comment (name, email, subject,mesage) values (?, ?, ?, ?)";
 $stmt = $dbc->prepare($query);
@@ -12,7 +12,7 @@ $stmt->bindParam(2, $_POST['email']);
 $stmt->bindParam(3, $_POST['subject']);
 $stmt->bindParam(4, $_POST['message']);
 	if($stmt->execute()) {
-		echo "<script>alert('New Payment Saved.');location.href='mob_index'</script>";
+		echo "<script>alert('New Payment Saved.');location.href='mob_index.php'</script>";
 	} else {
 
 	}
@@ -32,7 +32,7 @@ $stmt->bindParam(4, $_POST['message']);
    </head>
 <body>
 <div class="container"></br>
-	<a href="mob_index" class="btn-close px-2" aria-label="Close"></a></br></br>
+	<a href="mob_index.php" class="btn-close px-2" aria-label="Close"></a></br></br>
   <h2>Give a Comment</a>
 <div  class="container-sm"> 
 	<form action="" method="POST">

@@ -1,7 +1,7 @@
 <?php
-	require '../config.php';
+	require '../db/config.php';
 if(isset($_POST['but_submit'])) {
-	require '../db.php';
+	require '../db/db.php';
       session_start([
     'cookie_httponly' => true,
     'cookie_secure' => true
@@ -17,7 +17,7 @@ if(isset($_POST['but_submit'])) {
 		$stmt->bindParam(6, $_POST['txt_pbox']);
 		$stmt->bindParam(7, $_POST['txt_adress']);
 		if($stmt->execute()) {
-			echo "<script>alert('Account Registered.');location.href='mob_login'</script>";
+			echo "<script>alert('Account Registered.');location.href='mob_login.php'</script>";
 		} else {}
 	} catch(PDOException $e) {
 		echo "Error: " . $e->getMessage();

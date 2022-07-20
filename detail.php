@@ -14,7 +14,7 @@ include 'auth_session.php';
 		
 		<?php
 		if(isset($_GET['uid'])) {
-		include "config.php";    
+		include "db/config.php";    
 		$cid=$_GET['uid'];
 		$sql_query = "select * from partner where cid='".$cid."'";
 		$result = mysqli_query($con,$sql_query);
@@ -51,7 +51,7 @@ include 'auth_session.php';
 	
 		
 		
-		require 'db.php';
+		require 'db/db.php';
 		try {
 		echo '<div class="table-responsive">';
     $ty=['','Ethio Telecom','Elpa','Water'];

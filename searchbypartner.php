@@ -24,7 +24,7 @@ include 'auth_session.php';
                                         <input type="text" name="search" required value="<?php if(isset($_GET['search'])){echo $_GET['search']; } ?>" class="form-control" placeholder="Search data">
                                         <button type="submit" class="btn btn-primary">Search</button>
                                         <input type="submit" class="button" value="print" onClick="window.print()" />
-                                        <a href="Admin">Back</a> </br>
+                                        <a href="admin.php">Back</a> </br>
                                     </div>
                                     
                                 
@@ -56,7 +56,7 @@ include 'auth_session.php';
                                 <?php 
                                     if(isset($_GET['search']))
                                     {
-                                         require 'config.php';
+                                         require 'db/config.php';
                                         $filtervalues = $_GET['search'];
                                         $query = "SELECT * FROM commit WHERE CONCAT(partner ) LIKE '%$filtervalues%' ";
                                        

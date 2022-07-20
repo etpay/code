@@ -9,13 +9,13 @@ include 'auth_session.php';
 	<body>
 <?php
 if(isset($_POST['submit_btn'])) {
-	require 'db.php';
+	require 'db/db.php';
 	try {
 		$query = "INSERT INTO partners SET name=?";
 		$stmt = $dbc->prepare($query);
 		$stmt->bindParam(1, $_POST['name']);
 		if($stmt->execute()) {
-			echo "<script>alert('New partner Saved.');location.href='Admin'</script>";
+			echo "<script>alert('New partner Saved.');location.href='admin.php'</script>";
 		} else {}
 	} catch(PDOException $e) {
 		echo "Error: " . $e->getMessage();
@@ -35,7 +35,7 @@ if(isset($_POST['submit_btn'])) {
     </form>   
     <?php
 
-	require 'db.php';
+	require 'db/db.php';
 	try {
 	$query = "SELECT * FROM partners";
 	$stmt = $dbc->prepare($query);

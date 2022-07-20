@@ -54,7 +54,7 @@ body {
     </div>
 </body>
 <?php
-include "config.php";
+include "db/config.php";
     session_start([
     'cookie_httponly' => true,
     'cookie_secure' => true

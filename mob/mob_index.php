@@ -19,16 +19,16 @@ include 'mob_auth_session.php';
           <a class="nav-link "  href="#">Account</a>
         </th>
         <th >
-          <a class="nav-link" href="mob_partner">Partner</a>
+          <a class="nav-link" href="mob_partner.php">Partner</a>
         </th>
         <th >
-          <a class="nav-link " href="mob_payment">Payment</a>
+          <a class="nav-link " href="mob_payment.php">Payment</a>
         </th> 
 		<th >
-          <a class="nav-link" href="mob_coment">Comment</a>
+          <a class="nav-link" href="mob_coment.php">Comment</a>
         </th>
 	      <th >
-          <a class="nav-link " href="mob_logout">Log out</a>
+          <a class="nav-link " href="mob_logout.php">Log out</a>
         </th>
 </tr>
   
@@ -37,7 +37,7 @@ include 'mob_auth_session.php';
 
 <?php
  
-	require '../db.php';
+	require '../db/db.php';
 	try {
 $cid=$_SESSION['cid'];
 	$query = "SELECT * FROM commit where uid='".$cid."'";
@@ -85,7 +85,7 @@ $cid=$_SESSION['cid'];
 	echo "<td>{$wday}</td>";
 	$total = ($row['electric'] + $row['telecom'] + $row['water']) ;
 	echo "<td>{$total}</td>";
-	echo "<td><a href='Edit?cu_id={$cu_id}'>New Month</a> </td>";
+	echo "<td><a href='edit.php?cu_id={$cu_id}'>New Month</a> </td>";
 	
 
 

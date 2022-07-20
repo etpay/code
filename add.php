@@ -39,7 +39,7 @@ include 'auth_session.php';
 	<body>
 <?php
 if(isset($_POST['submit_btn'])) {
-	require 'db.php';
+	require 'db/db.php';
 	try {
 		$query = "INSERT INTO commit SET name=?, partner=?, electric=?,edeadline=?, telecom=?, tdeadline=?, water=?, wdeadline=?";
 		$stmt = $dbc->prepare($query);
@@ -52,7 +52,7 @@ if(isset($_POST['submit_btn'])) {
 		$stmt->bindParam(7, $_POST['wwater']);
 		$stmt->bindParam(8, $_POST['wdeadline']);
 		if($stmt->execute()) {
-			echo "<script>alert('New Payment Saved.');location.href='Admin'</script>";
+			echo "<script>alert('New Payment Saved.');location.href='admin.php'</script>";
 		} else {}
 	} catch(PDOException $e) {
 		echo "Error: " . $e->getMessage();
@@ -104,7 +104,7 @@ if(isset($_POST['submit_btn'])) {
 			<input class="form-control"type="submit" name="submit_btn"/>
 	</div></br>
 <div class="form-group">
-			<a class="form-control" href="Admin">Back</a> </br>
+			<a class="form-control" href="admin.php">Back</a> </br>
 </div>
 		</form>
 	</body>

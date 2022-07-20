@@ -13,7 +13,7 @@ include 'auth_session.php';
    </head>
 <body>
 				<?php
-				require 'db.php';
+				require 'db/db.php';
 				try {
 				$query = "SELECT * FROM account";
 				$stmt = $dbc->prepare($query);
@@ -32,7 +32,7 @@ include 'auth_session.php';
 				while($row=$stmt->fetch(PDO::FETCH_ASSOC)) {
 					extract($row);
 				echo "<tr>";
-				echo "<td><a href='Detail?uid={$uid}'>{$uid}</a></td>";
+				echo "<td><a href='detail.php?uid={$uid}'>{$uid}</a></td>";
 				echo "<td>{$full_name }</td>";
 				echo "<td>{$username}</td>";
 				echo "<td>{$phone_number}</td>";

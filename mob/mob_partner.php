@@ -1,7 +1,7 @@
 <?php
 include 'mob_auth_session.php';
 if(isset($_POST['but_submit_ethio'])) {
-	require '../db.php';
+	require '../db/db.php';
 	try {
     		$query = "INSERT INTO `partner` set `full_name`=?, `organization`=?, `branch`=?, `oid`=?, `phone_number`=?, `type`=1, `cid`=?";
 		$stmt = $dbc->prepare($query);
@@ -12,14 +12,14 @@ if(isset($_POST['but_submit_ethio'])) {
 		$stmt->bindParam(5, $_POST['bp']);
 		$stmt->bindParam(6, $_SESSION['cid']);
 		if($stmt->execute()) {
-			echo "<script>alert('Partner Registered.');location.href='mob_index'</script>";
+			echo "<script>alert('Partner Registered.');location.href='mob_index.php'</script>";
 		} else {}
 	} catch(PDOException $e) {
 		echo "Error: " . $e->getMessage();
 	}
 } 
 if(isset($_POST['but_submit_elpa'])) {
-	require '../db.php';
+	require '../db/db.php';
 	try {
 		$query = "INSERT INTO `partner` set `full_name`=?, `organization`=?, `branch`=?, `oid`=?, `phone_number`=?, `type`=2, `cid`=?";
 			
@@ -31,7 +31,7 @@ if(isset($_POST['but_submit_elpa'])) {
 		$stmt->bindParam(5, $_POST['op']);
 		$stmt->bindParam(6, $_SESSION['cid']);
 		if($stmt->execute()) {
-			echo "<script>alert('Partner Registered.');location.href='mob_index'</script>";
+			echo "<script>alert('Partner Registered.');location.href='mob_index.php'</script>";
 		} else {}
 	} catch(PDOException $e) {
 		echo "Error: " . $e->getMessage();
@@ -51,11 +51,11 @@ if(isset($_POST['but_submit_elpa'])) {
 
    <div class="container">
    </br>
-     <a href="mob_index" class="btn-close px-2" aria-label="Close"></a>
+     <a href="mob_index.php" class="btn-close px-2" aria-label="Close"></a>
     </br>
     </br>
    <?php
-include "../config.php";    
+include "../db/config.php";    
 $cid=$_SESSION['cid'];
 $sql_query = "select * from partner where cid='".$cid."'";
 $result = mysqli_query($con,$sql_query);

@@ -20,23 +20,23 @@ include 'auth_session.php';
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <a class="navbar-brand" href="Add">New payment</a>
+    <a class="navbar-brand" href="add.php">New payment</a>
     <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="SearchById">search by id</a>
+          <a class="nav-link active" aria-current="page" href="searchById.php">search by id</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="SearchByPartner">search by partner</a>
+          <a class="nav-link" href="searchByPartner.php">search by partner</a>
         </li>
 	      <li class="nav-item">
-          <a class="nav-link" href="Accounts">accounts</a>
+          <a class="nav-link" href="accounts.php">accounts</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link " href="Date">search by date</a>
+          <a class="nav-link " href="date.php">search by date</a>
         </li>
 	      <li class="nav-item">
-          <a class="nav-link enabled" href="logout">Log out</a>
+          <a class="nav-link enabled" href="logout.php">Log out</a>
         </li>
       </ul>
     </div>
@@ -46,7 +46,7 @@ include 'auth_session.php';
 
 <?php
  
-	require 'db.php';
+	require 'db/db.php';
 	try {
 	$query = "SELECT * FROM commit";
 	$stmt = $dbc->prepare($query);
@@ -93,7 +93,7 @@ include 'auth_session.php';
 	echo "<td>{$wday}</td>";
 	$total = ($row['electric'] + $row['telecom'] + $row['water']) ;
 	echo "<td>{$total}</td>";
-	echo "<td><a href='Edit?cu_id={$cu_id}'>New Month</a> </td>";
+	echo "<td><a href='edit.php?cu_id={$cu_id}'>New Month</a> </td>";
 	
 
 

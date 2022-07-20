@@ -50,22 +50,22 @@ include 'auth_session.php';
 
 				<?php
 				if(isset($_GET['cu_id'])) {
-					require 'config.php';
+					require 'db/config.php';
 					mysqli_query($con,"UPDATE  commit SET paid=true WHERE cu_id =".$_GET['cu_id']); 
 				}
 				echo "This Month and year is</br>";
 				echo date("m-Y");
 				?>
 				</br>
-				<a href="Add">New payment</a> </br>
-				<a href="SearchById">search by id</a> </br>
-				<a href="SearchByPartner">search by partner</a> </br>
-				<a href="Date">search by date</a> </br>
+				<a href="add.php">New payment</a> </br>
+				<a href="searchById.php">search by id</a> </br>
+				<a href="searchByPartner.php">search by partner</a> </br>
+				<a href="date.php">search by date</a> </br>
 				<input type="submit" class="button" value="print" onClick="window.print()" />
-				<a href="Admin">Back</a> </br>
+				<a href="admin.php">Back</a> </br>
 				</br>
 				<?php
-				require 'db.php';
+				require 'db/db.php';
 				try {
 				$query = "SELECT * FROM commit";
 				$stmt = $dbc->prepare($query);
@@ -107,7 +107,7 @@ include 'auth_session.php';
 				echo "<td>{$wday}</td>";
 				$total = ($row['electric'] + $row['telecom'] + $row['water']) ;
 				echo "<td>{$total}</td>";
-				echo "<td><a href='Edit?cu_id={$cu_id}'>New Month</a> </td>";
+				echo "<td><a href='edit.php?cu_id={$cu_id}'>New Month</a> </td>";
 				echo "</tr>";
 				}
 				} catch(PDOException $e) {
@@ -121,7 +121,7 @@ include 'auth_session.php';
 				}
 			</script>
 			<?php
-		 		require 'config.php';
+		 		require 'db/config.php';
 				echo "<h2>";echo " receiver=> electric ";echo "</h2>";
 				//sql query
 				$sql = "SELECT SUM(electric) from commit ";

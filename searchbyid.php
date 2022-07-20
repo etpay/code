@@ -52,10 +52,10 @@ include 'auth_session.php';
 		</div><br>
         <input class="form-control" type="submit" name="submit">
         <input class="form-control" type="submit" class="button" value="print" onClick="window.print()" />
-        <a href="Admin">Back</a> </br>
+        <a href="admin.php">Back</a> </br>
         </form>
         <?php
-        require 'db.php';
+        require 'db/db.php';
         
         if (isset($_POST["submit"])) {
             $id = $_POST["search"];

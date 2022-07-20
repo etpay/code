@@ -1,7 +1,7 @@
 <?php
 include 'mob_auth_session.php';
 if(isset($_POST['but_submit_ethio'])) {
-	require '../db.php';
+	require '../db/db.php';
 	try {
     		$query = "INSERT INTO `payment` set `full_name`=?, `account_no`=?, `contract_service_no`=?, `addres`=?, `type`=1, `cid`=?";
 		$stmt = $dbc->prepare($query);
@@ -11,7 +11,7 @@ if(isset($_POST['but_submit_ethio'])) {
 		$stmt->bindParam(4, $_POST['ad']);
 		$stmt->bindParam(5, $_SESSION['cid']);
 		if($stmt->execute()) {
-			echo "<script>alert('Payment Registered.');location.href='mob_index'</script>";
+			echo "<script>alert('Payment Registered.');location.href='mob_index.php'</script>";
 		} else {}
 	} catch(PDOException $e) {
 		echo "Error: " . $e->getMessage();
@@ -29,13 +29,13 @@ if(isset($_POST['but_submit_ethio'])) {
 
    </head>
    <body></br>
-	   <a href="mob_index" class="btn-close text-center px-2" aria-label="Close"></a></br>
+	   <a href="mob_index.php" class="btn-close text-center px-2" aria-label="Close"></a></br>
 	   <div class="container">
 <div class="table-responsive">
 <?php
 
-	require '../db.php';
-	require '../config.php';
+	require '../db/db.php';
+	require '../db/config.php';
 	try {
     $ty=['','Ethio Telecom','Elpa','Water'];
     $cid=$_SESSION['cid'];

@@ -42,7 +42,7 @@ include 'auth_session.php';
 
 if(isset($_POST['submit_btn'])) {
     try {
-        require 'db.php';
+        require 'db/db.php';
         $query = "UPDATE commit SET  electric=?,edeadline=?, telecom=?,tdeadline=?, water=?,wdeadline=? ,paid=?WHERE cu_id=?";
         $stmt = $dbc->prepare($query);
         $stmt->bindParam(1, $_POST['eelectric']);
@@ -58,7 +58,7 @@ if(isset($_POST['submit_btn'])) {
         $s->bindParam(1, $_POST['cu_id']);
         $s->execute();
         if($stmt->execute()) {
-            echo "<script>alert('New Month Payment Made.');location.href='Admin'</script>";
+            echo "<script>alert('New Month Payment Made.');location.href='admin.php'</script>";
         } else {}
     } catch(PDOException $e) {
         echo "Error: " . $e->getMessage();
@@ -80,7 +80,7 @@ if(isset($_POST['submit_btn'])) {
         <form action="" method="POST">
             <?php
             if(isset($_GET['cu_id'])) {
-                require 'config.php';
+                require 'db/config.php';
                 $result = mysqli_query($con,"SELECT cu_id,name,partner FROM commit WHERE cu_id =".$_GET['cu_id']);
                 $row = mysqli_fetch_row($result);
             }

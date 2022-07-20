@@ -3,7 +3,7 @@
     'cookie_httponly' => true,
     'cookie_secure' => true
 ]);
-include "../config.php";
+include "../db/config.php";
 
 if(isset($_POST['but_submit'])){
 
@@ -51,7 +51,7 @@ $password=md5($pass);
             </div>
       <!-- Register buttons -->
       <div class="text-center">
-        <p>Not a member? <a href="mob_register">Register</a></p>
+        <p>Not a member? <a href="mob_register.php">Register</a></p>
       </div>
     </form>    
 </div>

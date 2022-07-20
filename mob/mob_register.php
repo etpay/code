@@ -1,6 +1,6 @@
 <?php
 if(isset($_POST['but_submit'])) {
-	require '../db.php';
+	require '../db/db.php';
       session_start([
     'cookie_httponly' => true,
     'cookie_secure' => true
@@ -16,7 +16,7 @@ if(isset($_POST['but_submit'])) {
 		$stmt->bindParam(6, $_POST['txt_pbox']);
 		$stmt->bindParam(7, $_POST['txt_adress']);
 		if($stmt->execute()) {
-			echo "<script>alert('Account Registered.');location.href='mob_login'</script>";
+			echo "<script>alert('Account Registered.');location.href='mob_login.php'</script>";
 		} else {}
 	} catch(PDOException $e) {
 		echo "Error: " . $e->getMessage();
@@ -49,7 +49,7 @@ if(isset($_POST['but_submit'])) {
         <div class="form-check">
   <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" required>
   <label class="form-check-label" for="flexCheckDefault">
-    By clicking Register, you agree to our <a href="terms"> Terms and Conditions </a>
+    By clicking Register, you agree to our <a href="terms.php"> Terms and Conditions </a>
   </label>
 </div>
 
@@ -59,7 +59,7 @@ if(isset($_POST['but_submit'])) {
             </div>
       <!-- Register buttons -->
       <div class="text-center">
-        <p>Already a member? <a href="mob_login">Login</a></p>
+        <p>Already a member? <a href="mob_login.php">Login</a></p>
       </div>
     </form>    
 </div>

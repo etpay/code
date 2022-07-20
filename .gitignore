@@ -1,2 +1,2 @@
-config.php
-db.php
+db/config.php
+db/db.php

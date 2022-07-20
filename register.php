@@ -1,6 +1,6 @@
 <?php
 if(isset($_POST['but_submit'])) {
-	require 'db.php';
+	require 'db/db.php';
       session_start([
     'cookie_httponly' => true,
     'cookie_secure' => true
