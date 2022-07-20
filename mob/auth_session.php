@@ -4,7 +4,7 @@
     'cookie_secure' => true
 ]);
     if(!isset($_SESSION["cid"])) {
-        header("Location: mob_login.php");
+        header("Location: login.php");
         exit();
     }
 ?>

@@ -1,5 +1,4 @@
 <?php
-	require '../db/config.php';
 if(isset($_POST['but_submit'])) {
 	require '../db/db.php';
       session_start([
@@ -17,7 +16,7 @@ if(isset($_POST['but_submit'])) {
 		$stmt->bindParam(6, $_POST['txt_pbox']);
 		$stmt->bindParam(7, $_POST['txt_adress']);
 		if($stmt->execute()) {
-			echo "<script>alert('Account Registered.');location.href='mob_login.php'</script>";
+			echo "<script>alert('Account Registered.');location.href='login.php'</script>";
 		} else {}
 	} catch(PDOException $e) {
 		echo "Error: " . $e->getMessage();
@@ -47,23 +46,21 @@ if(isset($_POST['but_submit'])) {
         <input type="email" class="form-control"  name="txt_email" placeholder="Email" required></br>
         <input type="text" class="form-control"  name="txt_pbox" placeholder="Po Box" required></br>
         <input type="text" class="form-control"  name="txt_adress" placeholder="Adress" required></br>
-        <select name="service" >
-		<?php
-			$resultSet=$con->query("select * from partners");
-			while ($rows=$resultSet->fetch_assoc()){
-				$id=$rows['id'];
-				$name=$rows['name'];
-				echo "<option value='$id' >$name</option>";
-			}
-		?>
-	</select>
-   
+        <div class="form-check">
+  <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" required>
+  <label class="form-check-label" for="flexCheckDefault">
+    By clicking Register, you agree to our <a href="terms.php"> Terms and Conditions </a>
+  </label>
+</div>
 
       <!-- Submit button -->
       <div class="d-grid gap-2">
       <button type="submit" name="but_submit" class="btn btn-primary ">Register</button></br>
-       </div>
-    
+            </div>
+      <!-- Register buttons -->
+      <div class="text-center">
+        <p>Already a member? <a href="login.php">Login</a></p>
+      </div>
     </form>    
 </div>
    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>

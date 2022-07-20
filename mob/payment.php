@@ -1,5 +1,5 @@
 <?php
-include 'mob_auth_session.php';
+include 'auth_session.php';
 if(isset($_POST['but_submit_ethio'])) {
 	require '../db/db.php';
 	try {
@@ -11,7 +11,7 @@ if(isset($_POST['but_submit_ethio'])) {
 		$stmt->bindParam(4, $_POST['ad']);
 		$stmt->bindParam(5, $_SESSION['cid']);
 		if($stmt->execute()) {
-			echo "<script>alert('Payment Registered.');location.href='mob_index.php'</script>";
+			echo "<script>alert('Payment Registered.');location.href='index.php'</script>";
 		} else {}
 	} catch(PDOException $e) {
 		echo "Error: " . $e->getMessage();
@@ -29,7 +29,7 @@ if(isset($_POST['but_submit_ethio'])) {
 
    </head>
    <body></br>
-	   <a href="mob_index.php" class="btn-close text-center px-2" aria-label="Close"></a></br>
+	   <a href="index.php" class="btn-close text-center px-2" aria-label="Close"></a></br>
 	   <div class="container">
 <div class="table-responsive">
 <?php

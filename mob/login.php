@@ -21,7 +21,7 @@ $password=md5($pass);
         if($count > 0){
             $_SESSION['uname'] = $uname;
             $_SESSION['cid'] = $row['uid'];
-            header('Location:mob_index.php');
+            header('Location:index.php');
         }else{
             echo "Invalid username and password";
         }
@@ -51,7 +51,7 @@ $password=md5($pass);
             </div>
       <!-- Register buttons -->
       <div class="text-center">
-        <p>Not a member? <a href="mob_register.php">Register</a></p>
+        <p>Not a member? <a href="register.php">Register</a></p>
       </div>
     </form>    
 </div>

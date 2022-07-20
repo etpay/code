@@ -1,5 +1,5 @@
 <?php
-include 'mob_auth_session.php';
+include 'auth_session.php';
 ?>
 
 <!doctype html>
@@ -16,19 +16,19 @@ include 'mob_auth_session.php';
 	<tr>
 
         <th >
-          <a class="nav-link "  href="#">Account</a>
+          <a class="nav-link "  href="account.php">Account</a>
         </th>
         <th >
-          <a class="nav-link" href="mob_partner.php">Partner</a>
+          <a class="nav-link" href="partner.php">Partner</a>
         </th>
         <th >
-          <a class="nav-link " href="mob_payment.php">Payment</a>
+          <a class="nav-link " href="payment.php">Payment</a>
         </th> 
 		<th >
-          <a class="nav-link" href="mob_coment.php">Comment</a>
+          <a class="nav-link" href="coment.php">Comment</a>
         </th>
 	      <th >
-          <a class="nav-link " href="mob_logout.php">Log out</a>
+          <a class="nav-link " href="logout.php">Log out</a>
         </th>
 </tr>
   
