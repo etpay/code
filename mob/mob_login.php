@@ -21,7 +21,7 @@ $password=md5($pass);
         if($count > 0){
             $_SESSION['uname'] = $uname;
             $_SESSION['cid'] = $row['uid'];
-            header('Location:mob_index');
+            header('Location:mob_index.php');
         }else{
             echo "Invalid username and password";
         }

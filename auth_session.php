@@ -4,7 +4,7 @@
     'cookie_secure' => true
 ]);
     if(!isset($_SESSION["uname"])) {
-        header("Location: Login");
+        header("Location: login.php");
         exit();
     }
 ?>

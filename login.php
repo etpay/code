@@ -79,10 +79,10 @@ if(isset($_POST['but_submit'])){
             
             if ($row['role']=='Admin') {
                  $_SESSION['uname'] = $uname;
-                header('Location:Register');
+                header('Location:register.php');
             } else {
                 $_SESSION['uname'] = $uname;
-                header('Location:Admin');
+                header('Location:admin.php');
             }
             
         }else{
