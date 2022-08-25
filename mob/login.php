@@ -32,6 +32,9 @@ $password=md5($pass);
 <!doctype html>
 <html lang="en">
   <head>
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'">
+<meta http-equiv="X-Content-Security-Policy" content="default-src 'self'; script-src 'self'">
+<meta http-equiv="X-WebKit-CSP" content="default-src 'self'; script-src 'self'">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- CSS only -->
@@ -41,7 +44,7 @@ $password=md5($pass);
    <body></br>
     <div  class="container-sm"> 
         <h5 class="text-center"> Yesera Sew Payment System</h5></br>
-        <form method="post" action="">
+        <form  autocomplete="off"  method="post" action="">
             <h2 class="text-center"> Login</h2></br>
         <input type="text" class="form-control"  name="txt_uname" placeholder="Username" required></br>
         <input type="password" class="form-control" name="txt_pwd"  placeholder="Password" required></br>

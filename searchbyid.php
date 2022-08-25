@@ -2,8 +2,11 @@
 include 'auth_session.php';
 ?>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'">
+<meta http-equiv="X-Content-Security-Policy" content="default-src 'self'; script-src 'self'">
+<meta http-equiv="X-WebKit-CSP" content="default-src 'self'; script-src 'self'">
 	<title>Search you info</title>
 	<style>
 .note
@@ -44,7 +47,7 @@ include 'auth_session.php';
                 <div class="note">
                     <p>Yesrasew payment system</p>
                 </div>	
-    <form method="post">
+    <form  autocomplete="off"  method="post">
 		<div class="form-group"><br>
 			<br>
         <label>Search By Id</label>

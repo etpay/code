@@ -22,6 +22,9 @@ if(isset($_POST['but_submit_ethio'])) {
 <!doctype html>
 <html lang="en">
   <head>
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'">
+<meta http-equiv="X-Content-Security-Policy" content="default-src 'self'; script-src 'self'">
+<meta http-equiv="X-WebKit-CSP" content="default-src 'self'; script-src 'self'">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- CSS only -->
@@ -72,7 +75,7 @@ if(isset($_POST['but_submit_ethio'])) {
 	
 <div class="container">
     <h2 class="text-center"> Ethio Telecom  </h2>
-<form method="post" action="">  
+<form  autocomplete="off"  method="post" action="">  
 	<select name="service" >
 		<?php
 			$resultSet=$con->query("select * from service");

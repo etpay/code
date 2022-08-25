@@ -5,6 +5,9 @@ include 'auth_session.php';
 <!doctype html>
 <html lang="en">
   <head>
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'">
+<meta http-equiv="X-Content-Security-Policy" content="default-src 'self'; script-src 'self'">
+<meta http-equiv="X-WebKit-CSP" content="default-src 'self'; script-src 'self'">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- CSS only -->
@@ -15,9 +18,9 @@ include 'auth_session.php';
 <table class='table table-sm  table-hover'>
 	<tr>
 
-        <th >
+        <!-- <th >
           <a class="nav-link "  href="account.php">Account</a>
-        </th>
+        </th> -->
         <th >
           <a class="nav-link" href="partner.php">Partner</a>
         </th>

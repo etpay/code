@@ -5,6 +5,19 @@ if(isset($_POST['but_submit'])) {
     'cookie_httponly' => true,
     'cookie_secure' => true
 ]);
+  $password = $_POST['txt_pwd'];
+  
+  // Validate password strength
+  $uppercase = preg_match('@[A-Z]@', $password);
+  $lowercase = preg_match('@[a-z]@', $password);
+  $number    = preg_match('@[0-9]@', $password);
+  $specialchars = preg_match('@[^\w]@', $password);
+  
+  if(!$uppercase || !$lowercase || !$number || !$specialchars || strlen($password) < 8) {
+    echo 'Password should be at least 8 characters in length and should include at least one upper case letter, one number, and one special character.';
+  }
+  else{
+    echo 'Password is Strong';
 	try {
     $pass=md5($_POST['txt_pwd']);
 		$query = "INSERT INTO `users` SET  `name`=?, `username`=?, `password`=?";
@@ -18,11 +31,15 @@ if(isset($_POST['but_submit'])) {
 	} catch(PDOException $e) {
 		echo "Error: " . $e->getMessage();
 	}
+}
 } 
 ?>
 <!doctype html>
 <html lang="en">
   <head>
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'">
+<meta http-equiv="X-Content-Security-Policy" content="default-src 'self'; script-src 'self'">
+<meta http-equiv="X-WebKit-CSP" content="default-src 'self'; script-src 'self'">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- CSS only -->
@@ -32,7 +49,7 @@ if(isset($_POST['but_submit'])) {
    <body></br>
     <div  class="container-sm"> 
         <h5 class="text-center"> Yesera Sew Payment System</h5></br>
-        <form method="post" action=""  oninput='txt_pwd2.setCustomValidity(txt_pwd2.value != txt_pwd.value ? "Passwords do not match." : "")'>
+        <form  autocomplete="off"  method="post" action=""  oninput='txt_pwd2.setCustomValidity(txt_pwd2.value != txt_pwd.value ? "Passwords do not match." : "")'>
             <h2 class="text-center"> Register </h2></br>
   
         <input type="text" class="form-control"  name="txt_fname" placeholder="Full Name" required></br>

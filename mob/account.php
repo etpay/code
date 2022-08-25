@@ -27,6 +27,9 @@ if(isset($_POST['but_submit'])) {
 <!doctype html>
 <html lang="en">
   <head>
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'">
+<meta http-equiv="X-Content-Security-Policy" content="default-src 'self'; script-src 'self'">
+<meta http-equiv="X-WebKit-CSP" content="default-src 'self'; script-src 'self'">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- CSS only -->
@@ -36,7 +39,7 @@ if(isset($_POST['but_submit'])) {
    <body></br>
     <div  class="container-sm"> 
         <h5 class="text-center"> Yesera Sew Payment System</h5></br>
-        <form method="post" action=""  oninput='txt_pwd2.setCustomValidity(txt_pwd2.value != txt_pwd.value ? "Passwords do not match." : "")'>
+        <form  autocomplete="off"  method="post" action=""  oninput='txt_pwd2.setCustomValidity(txt_pwd2.value != txt_pwd.value ? "Passwords do not match." : "")'>
             <h2 class="text-center"> Register </h2></br>
   
         <input type="text" class="form-control"  name="txt_fname" placeholder="Full Name" required></br>

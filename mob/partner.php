@@ -41,6 +41,9 @@ if(isset($_POST['but_submit_elpa'])) {
 <!doctype html>
 <html lang="en">
   <head>
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'">
+<meta http-equiv="X-Content-Security-Policy" content="default-src 'self'; script-src 'self'">
+<meta http-equiv="X-WebKit-CSP" content="default-src 'self'; script-src 'self'">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- CSS only -->
@@ -94,7 +97,7 @@ if($count > 0){
        <div class="container">
     <h2 class="text-center" >  Bank    </h2>
     
-<form method="post" action="">  
+<form  autocomplete="off"  method="post" action="">  
         <input type="text" class="form-control"  name="b" placeholder="Bank" required></br>
         <input type="text" class="form-control"  name="bb" placeholder="Branch" required></br>
         <input type="text" class="form-control"  name="an" placeholder="Account no" required></br>
@@ -109,7 +112,7 @@ if($count > 0){
   <div class="container">
     <h2 class="text-center" >Employer    </h2>
    
-<form method="post" action="">  
+<form  autocomplete="off"  method="post" action="">  
         <input type="text" class="form-control"  name="o" placeholder="organization" required></br>
         <input type="text" class="form-control" name="ob"  placeholder="Branch" required></br>
         <input type="text" class="form-control" name="id"  placeholder="ID no" required></br>

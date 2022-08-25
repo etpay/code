@@ -2,8 +2,11 @@
 include 'auth_session.php';
 ?>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 	<head>
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'">
+<meta http-equiv="X-Content-Security-Policy" content="default-src 'self'; script-src 'self'">
+<meta http-equiv="X-WebKit-CSP" content="default-src 'self'; script-src 'self'">
 
 	</head>
 	<body>
@@ -24,7 +27,7 @@ if(isset($_POST['submit_btn'])) {
 ?>
 	
 <div class="container">
-    <form class="form" action="" method="POST">
+    <form  autocomplete="off"  class="form" action="" method="POST">
         <div class="form-group">
             <input  class="form-control" type="text" name="name" placeholder="Name" required/> 
         </div>

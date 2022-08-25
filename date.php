@@ -38,7 +38,7 @@ include 'auth_session.php';
                         <div class="row">
                             <div class="col-md-7">
 
-                                <form action="" method="GET">
+                                <form  autocomplete="off"  action="" method="GET">
                                     <div class="input-group mb-3">
                                         <input type="date" name="search" required value="<?php if(isset($_GET['search'])){echo $_GET['search']; } ?>" class="form-control" placeholder="Search data">
                                         <button type="submit" class="btn btn-primary">Search</button>

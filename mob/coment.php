@@ -24,6 +24,9 @@ $stmt->bindParam(4, $_POST['message']);
 <!doctype html>
 <html lang="en">
   <head>
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'">
+<meta http-equiv="X-Content-Security-Policy" content="default-src 'self'; script-src 'self'">
+<meta http-equiv="X-WebKit-CSP" content="default-src 'self'; script-src 'self'">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- CSS only -->
@@ -35,7 +38,7 @@ $stmt->bindParam(4, $_POST['message']);
 	<a href="index.php" class="btn-close px-2" aria-label="Close"></a></br></br>
   <h2>Give a Comment</a>
 <div  class="container-sm"> 
-	<form action="" method="POST">
+	<form  autocomplete="off"  action="" method="POST">
 
   <div class="mb-3">
  <input type="text" class="form-control" name="name" placeholder="Full Name"required/> 

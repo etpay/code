@@ -2,8 +2,11 @@
 include 'auth_session.php';
 ?>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 	<head>
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'">
+<meta http-equiv="X-Content-Security-Policy" content="default-src 'self'; script-src 'self'">
+<meta http-equiv="X-WebKit-CSP" content="default-src 'self'; script-src 'self'">
 <style>
 .note
 {
