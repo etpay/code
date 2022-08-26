@@ -1,6 +1,7 @@
 <?php
 if(isset($_POST['but_submit'])) {
 	require 'db/db.php';
+	require 'db/config.php';
       session_start([
     'cookie_httponly' => true,
     'cookie_secure' => true
@@ -19,15 +20,25 @@ if(isset($_POST['but_submit'])) {
   else{
     echo 'Password is Strong';
 	try {
+    $txt_fname =mysqli_real_escape_string($con, $_POST['txt_fname']);
+		$txt_uname =	mysqli_real_escape_string($con,$_POST['txt_uname'] );
     $pass=md5($_POST['txt_pwd']);
-		$query = "INSERT INTO `users` SET  `name`=?, `username`=?, `password`=?";
-		$stmt = $dbc->prepare($query);
-		$stmt->bindParam(1, $_POST['txt_fname']);
-		$stmt->bindParam(2, $_POST['txt_uname']);
-		$stmt->bindParam(3,$pass); 
-		if($stmt->execute()) {
-			echo "<script>alert('Account Registered.');</script>";
-		} else {}
+    $sql = "INSERT INTO `users` SET  `name`=$txt_fname, `username`=txt_uname, `password`=$pass";
+		if ($con->query($sql) === TRUE) {
+      echo "<script>alert('Account Registered.');</script>";
+		} else {
+      echo "Error: <br>" . $conn->error;
+		}
+
+    // $pass=md5($_POST['txt_pwd']);
+		// $query = "INSERT INTO `users` SET  `name`=?, `username`=?, `password`=?";
+		// $stmt = $dbc->prepare($query);
+		// $stmt->bindParam(1, $_POST['txt_fname']);
+		// $stmt->bindParam(2, $_POST['txt_uname']);
+		// $stmt->bindParam(3,$pass); 
+		// if($stmt->execute()) {
+		// 	echo "<script>alert('Account Registered.');</script>";
+		// } else {}
 	} catch(PDOException $e) {
 		echo "Error: " . $e->getMessage();
 	}

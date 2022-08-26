@@ -46,23 +46,48 @@ include 'auth_session.php';
 if(isset($_POST['submit_btn'])) {
     try {
         require 'db/db.php';
-        $query = "UPDATE commit SET  electric=?,edeadline=?, telecom=?,tdeadline=?, water=?,wdeadline=? ,paid=?WHERE cu_id=?";
-        $stmt = $dbc->prepare($query);
-        $stmt->bindParam(1, $_POST['eelectric']);
-        $stmt->bindParam(2, $_POST['edeadline']);
-        $stmt->bindParam(3, $_POST['ttelecom']);
-        $stmt->bindParam(4, $_POST['tdeadline']);
-        $stmt->bindParam(5, $_POST['wwater']);
-        $stmt->bindParam(6, $_POST['wdeadline']);
-        $stmt->bindParam(7, $_POST['deadline2']);
-        $stmt->bindParam(8, $_POST['cu_id']);
-        $q=' INSERT INTO commit2 SELECT * FROM commit WHERE cu_id=?';
-        $s = $dbc->prepare($q);
-        $s->bindParam(1, $_POST['cu_id']);
-        $s->execute();
-        if($stmt->execute()) {
-            echo "<script>alert('New Month Payment Made.');location.href='admin.php'</script>";
-        } else {}
+        require 'db/config.php';
+
+		$eelectric =mysqli_real_escape_string($con,$_POST['eelectric'] );
+		$edeadline =mysqli_real_escape_string($con, $_POST['edeadline'] );
+		$ttelecom =	mysqli_real_escape_string($con,$_POST['ttelecom'] );
+		$tdeadline =mysqli_real_escape_string($con, $_POST['tdeadline']);
+		$wwater =mysqli_real_escape_string($con,$_POST['wwater'] );
+		$wdeadline =mysqli_real_escape_string($con, $_POST['wdeadline']);
+		$deadline2 =mysqli_real_escape_string($con, $_POST['deadline2']);
+		$cu_id =mysqli_real_escape_string($con, $_POST['cu_id']);
+		$sql = "UPDATE commit SET  electric=$eelectric,edeadline=$edeadline,telecom=$ttelecom, tdeadline=$tdeadline, water=$wwater, wdeadline=$wdeadline,paid= $deadline2 WHERE cu_id=$cu_id";
+		 $q=" INSERT INTO commit2 SELECT * FROM commit WHERE cu_id=$cu_id";
+       
+        if ($con->query($q) === TRUE) {
+            if ($con->query($sql) === TRUE) {
+                echo "<script>alert('New Month Payment Made.');location.href='admin.php'</script>";
+            } else {
+                echo "Error: <br>" . $conn->error;
+            }
+        }else {
+			echo "Error:<br>" . $conn->error;
+		}
+
+
+
+        // $query = "UPDATE commit SET  electric=?,edeadline=?, telecom=?,tdeadline=?, water=?,wdeadline=? ,paid=?WHERE cu_id=?";
+        // $stmt = $dbc->prepare($query);
+        // $stmt->bindParam(1, $_POST['eelectric']);
+        // $stmt->bindParam(2, $_POST['edeadline']);
+        // $stmt->bindParam(3, $_POST['ttelecom']);
+        // $stmt->bindParam(4, $_POST['tdeadline']);
+        // $stmt->bindParam(5, $_POST['wwater']);
+        // $stmt->bindParam(6, $_POST['wdeadline']);
+        // $stmt->bindParam(7, $_POST['deadline2']);
+        // $stmt->bindParam(8, $_POST['cu_id']);
+        // $q=' INSERT INTO commit2 SELECT * FROM commit WHERE cu_id=?';
+        // $s = $dbc->prepare($q);
+        // $s->bindParam(1, $_POST['cu_id']);
+        // $s->execute();
+        // if($stmt->execute()) {
+        //     echo "<script>alert('New Month Payment Made.');location.href='admin.php'</script>";
+        // } else {}
     } catch(PDOException $e) {
         echo "Error: " . $e->getMessage();
     }

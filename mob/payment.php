@@ -2,17 +2,31 @@
 include 'auth_session.php';
 if(isset($_POST['but_submit_ethio'])) {
 	require '../db/db.php';
+	require '../db/config.php';
 	try {
-    		$query = "INSERT INTO `payment` set `full_name`=?, `account_no`=?, `contract_service_no`=?, `addres`=?, `type`=1, `cid`=?";
-		$stmt = $dbc->prepare($query);
-		$stmt->bindParam(1, $_POST['cn']);
-		$stmt->bindParam(2, $_POST['can']);
-		$stmt->bindParam(3, $_POST['sn']);
-		$stmt->bindParam(4, $_POST['ad']);
-		$stmt->bindParam(5, $_SESSION['cid']);
-		if($stmt->execute()) {
+
+	$cn =mysqli_real_escape_string($con, $_POST['cn']);
+	$can =mysqli_real_escape_string($con, $_POST['can']);
+	$sn =mysqli_real_escape_string($con, $_POST['sn']);
+	$ad =mysqli_real_escape_string($con, $_POST['ad']);
+	$cid=$_SESSION['cid']
+		$sql = "INSERT INTO `payment` set `full_name`=$cn, `account_no`=$can, `contract_service_no`=$sn, `addres`=$ad, `type`=1, `cid`=$cid";
+		if ($con->query($sql) === TRUE) {
 			echo "<script>alert('Payment Registered.');location.href='index.php'</script>";
-		} else {}
+		} else {
+			echo "Error:<br>" . $conn->error;
+		}
+
+    	// 	$query = "INSERT INTO `payment` set `full_name`=?, `account_no`=?, `contract_service_no`=?, `addres`=?, `type`=1, `cid`=?";
+		// $stmt = $dbc->prepare($query);
+		// $stmt->bindParam(1, $_POST['cn']);
+		// $stmt->bindParam(2, $_POST['can']);
+		// $stmt->bindParam(3, $_POST['sn']);
+		// $stmt->bindParam(4, $_POST['ad']);
+		// $stmt->bindParam(5, $_SESSION['cid']);
+		// if($stmt->execute()) {
+		// 	echo "<script>alert('Payment Registered.');location.href='index.php'</script>";
+		// } else {}
 	} catch(PDOException $e) {
 		echo "Error: " . $e->getMessage();
 	}

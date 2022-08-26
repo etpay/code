@@ -43,20 +43,37 @@ include 'auth_session.php';
 <?php
 if(isset($_POST['submit_btn'])) {
 	require 'db/db.php';
+	require 'db/config.php';
 	try {
-		$query = "INSERT INTO commit SET name=?, partner=?, electric=?,edeadline=?, telecom=?, tdeadline=?, water=?, wdeadline=?";
-		$stmt = $dbc->prepare($query);
-		$stmt->bindParam(1, $_POST['fname']);
-		$stmt->bindParam(2, $_POST['ppartner']);
-		$stmt->bindParam(3, $_POST['eelectric']);
-		$stmt->bindParam(4, $_POST['edeadline']);
-		$stmt->bindParam(5, $_POST['ttelecom']);
-		$stmt->bindParam(6, $_POST['tdeadline']);
-		$stmt->bindParam(7, $_POST['wwater']);
-		$stmt->bindParam(8, $_POST['wdeadline']);
-		if($stmt->execute()) {
+		$fname =mysqli_real_escape_string($con, $_POST['fname']);
+		$ppartner =	mysqli_real_escape_string($con,$_POST['ppartner'] );
+		$eelectric =mysqli_real_escape_string($con,$_POST['eelectric'] );
+		$edeadline =mysqli_real_escape_string($con, $_POST['edeadline'] );
+		$ttelecom =	mysqli_real_escape_string($con,$_POST['ttelecom'] );
+		$tdeadline =mysqli_real_escape_string($con, $_POST['tdeadline']);
+		$wwater =mysqli_real_escape_string($con,$_POST['wwater'] );
+		$wdeadline =mysqli_real_escape_string($con, $_POST['wdeadline']);
+		$sql = "INSERT INTO commit SET name=$fname, partner=$ppartner, electric=$eelectric,edeadline=$edeadline,telecom=$ttelecom, tdeadline=$tdeadline, water=$wwater, wdeadline=$wdeadline";
+		if ($con->query($sql) === TRUE) {
 			echo "<script>alert('New Payment Saved.');location.href='admin.php'</script>";
-		} else {}
+		} else {
+			echo "Error: <br>" . $conn->error;
+		}
+
+
+		// $query = "INSERT INTO commit SET name=?, partner=?, electric=?,edeadline=?, telecom=?, tdeadline=?, water=?, wdeadline=?";
+		// $stmt = $dbc->prepare($query);
+		// $stmt->bindParam(1, $_POST['fname']);
+		// $stmt->bindParam(2, $_POST['ppartner']);
+		// $stmt->bindParam(3, $_POST['eelectric']);
+		// $stmt->bindParam(4, $_POST['edeadline']);
+		// $stmt->bindParam(5, $_POST['ttelecom']);
+		// $stmt->bindParam(6, $_POST['tdeadline']);
+		// $stmt->bindParam(7, $_POST['wwater']);
+		// $stmt->bindParam(8, $_POST['wdeadline']);
+		// if($stmt->execute()) {
+		// 	echo "<script>alert('New Payment Saved.');location.href='admin.php'</script>";
+		// } else {}
 	} catch(PDOException $e) {
 		echo "Error: " . $e->getMessage();
 	}

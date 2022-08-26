@@ -2,37 +2,65 @@
 include 'auth_session.php';
 if(isset($_POST['but_submit_ethio'])) {
 	require '../db/db.php';
+	require '../db/config.php';
 	try {
-    		$query = "INSERT INTO `partner` set `full_name`=?, `organization`=?, `branch`=?, `oid`=?, `phone_number`=?, `type`=1, `cid`=?";
-		$stmt = $dbc->prepare($query);
-		$stmt->bindParam(1, $_POST['bfn']);
-		$stmt->bindParam(2, $_POST['b']);
-		$stmt->bindParam(3, $_POST['bb']);
-		$stmt->bindParam(4, $_POST['an']);
-		$stmt->bindParam(5, $_POST['bp']);
-		$stmt->bindParam(6, $_SESSION['cid']);
-		if($stmt->execute()) {
-			echo "<script>alert('Partner Registered.');location.href='index.php'</script>";
-		} else {}
+	$bfn =mysqli_real_escape_string($con, $_POST['bfn']);
+	$b =mysqli_real_escape_string($con, $_POST['b']);
+	$bb =mysqli_real_escape_string($con, $_POST['bb']);
+	$an =mysqli_real_escape_string($con, $_POST['an']);
+	$bp =mysqli_real_escape_string($con, $_POST['bp']);
+	$cid=$_SESSION['cid']
+    $query = "INSERT INTO `partner` set `full_name`=$bfn, `organization`=$b, `branch`=$bb, `oid`=$an, `phone_number`=$bp, `type`=1, `cid`=$cid";
+		if ($con->query($sql) === TRUE) {
+			echo "<script>alert('Payment Registered.');location.href='index.php'</script>";
+		} else {
+			echo "Error:<br>" . $conn->error;
+		}
+
+    // 		$query = "INSERT INTO `partner` set `full_name`=?, `organization`=?, `branch`=?, `oid`=?, `phone_number`=?, `type`=1, `cid`=?";
+		// $stmt = $dbc->prepare($query);
+		// $stmt->bindParam(1, $_POST['bfn']);
+		// $stmt->bindParam(2, $_POST['b']);
+		// $stmt->bindParam(3, $_POST['bb']);
+		// $stmt->bindParam(4, $_POST['an']);
+		// $stmt->bindParam(5, $_POST['bp']);
+		// $stmt->bindParam(6, $_SESSION['cid']);
+		// if($stmt->execute()) {
+		// 	echo "<script>alert('Partner Registered.');location.href='index.php'</script>";
+		// } else {}
 	} catch(PDOException $e) {
 		echo "Error: " . $e->getMessage();
 	}
 } 
 if(isset($_POST['but_submit_elpa'])) {
 	require '../db/db.php';
+	require '../db/config.php';
 	try {
-		$query = "INSERT INTO `partner` set `full_name`=?, `organization`=?, `branch`=?, `oid`=?, `phone_number`=?, `type`=2, `cid`=?";
+  $ofn =mysqli_real_escape_string($con, $_POST['ofn']);
+	$o =mysqli_real_escape_string($con, $_POST['o']);
+	$ob =mysqli_real_escape_string($con, $_POST['ob']);
+	$id =mysqli_real_escape_string($con, $_POST['id']);
+	$op =mysqli_real_escape_string($con, $_POST['op']);
+	$cid=$_SESSION['cid']
+    $query = "INSERT INTO `partner` set `full_name`=$ofn, `organization`=$o, `branch`=$ob, `oid`=$id, `phone_number`=$op, `type`=1, `cid`=$cid";
+		if ($con->query($sql) === TRUE) {
+			echo "<script>alert('Payment Registered.');location.href='index.php'</script>";
+		} else {
+			echo "Error:<br>" . $conn->error;
+		}
+
+		// $query = "INSERT INTO `partner` set `full_name`=?, `organization`=?, `branch`=?, `oid`=?, `phone_number`=?, `type`=2, `cid`=?";
 			
-		$stmt = $dbc->prepare($query);
-		$stmt->bindParam(1, $_POST['ofn']);
-		$stmt->bindParam(2, $_POST['o']);
-		$stmt->bindParam(3, $_POST['ob']);
-		$stmt->bindParam(4, $_POST['id']);
-		$stmt->bindParam(5, $_POST['op']);
-		$stmt->bindParam(6, $_SESSION['cid']);
-		if($stmt->execute()) {
-			echo "<script>alert('Partner Registered.');location.href='index.php'</script>";
-		} else {}
+		// $stmt = $dbc->prepare($query);
+		// $stmt->bindParam(1, $_POST['ofn']);
+		// $stmt->bindParam(2, $_POST['o']);
+		// $stmt->bindParam(3, $_POST['ob']);
+		// $stmt->bindParam(4, $_POST['id']);
+		// $stmt->bindParam(5, $_POST['op']);
+		// $stmt->bindParam(6, $_SESSION['cid']);
+		// if($stmt->execute()) {
+		// 	echo "<script>alert('Partner Registered.');location.href='index.php'</script>";
+		// } else {}
 	} catch(PDOException $e) {
 		echo "Error: " . $e->getMessage();
 	}

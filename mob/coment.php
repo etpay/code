@@ -4,18 +4,31 @@ include 'auth_session.php';
 
 if(isset($_POST['submit_btn'])) {
 require '../db/db.php';
+require '../db/config.php';
 try {
-$query = "insert into comment (name, email, subject,mesage) values (?, ?, ?, ?)";
-$stmt = $dbc->prepare($query);
-$stmt->bindParam(1, $_POST['name']);
-$stmt->bindParam(2, $_POST['email']);
-$stmt->bindParam(3, $_POST['subject']);
-$stmt->bindParam(4, $_POST['message']);
-	if($stmt->execute()) {
-		echo "<script>alert('New Payment Saved.');location.href='index.php'</script>";
-	} else {
+	$name =mysqli_real_escape_string($con, $_POST['name']);
+	$email =mysqli_real_escape_string($con, $_POST['email']);
+	$subject =mysqli_real_escape_string($con, $_POST['subject']);
+	$message =mysqli_real_escape_string($con, $_POST['message']);
+  $sql = "insert into comment (name, email, subject,mesage) values ($name,$email,$subject,$message)";
+		if ($con->query($sql) === TRUE) {
+			echo "<script>alert('New payment Saved.');location.href='index.php'</script>";
+		} else {
+			echo "Error:<br>" . $conn->error;
+		}
 
-	}
+
+// $query = "insert into comment (name, email, subject,mesage) values (?, ?, ?, ?)";
+// $stmt = $dbc->prepare($query);
+// $stmt->bindParam(1, $_POST['name']);
+// $stmt->bindParam(2, $_POST['email']);
+// $stmt->bindParam(3, $_POST['subject']);
+// $stmt->bindParam(4, $_POST['message']);
+// 	if($stmt->execute()) {
+// 		echo "<script>alert('New Payment Saved.');location.href='index.php'</script>";
+// 	} else {
+
+// 	}
 } catch(PDOException $e) {
 	echo "Error: " . $e->getMessage();
 }

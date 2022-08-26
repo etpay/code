@@ -6,22 +6,50 @@ if(isset($_POST['but_submit'])) {
     'cookie_httponly' => true,
     'cookie_secure' => true
 ]);
+  $password = $_POST['txt_pwd'];
+  // Validate password strength
+  $uppercase = preg_match('@[A-Z]@', $password);
+  $lowercase = preg_match('@[a-z]@', $password);
+  $number    = preg_match('@[0-9]@', $password);
+  $specialchars = preg_match('@[^\w]@', $password);
+  
+  if(!$uppercase || !$lowercase || !$number || !$specialchars || strlen($password) < 8) {
+    echo 'Password should be at least 8 characters in length and should include at least one upper case letter, one number, and one special character.';
+  }
+  else{
+    echo 'Password is Strong';
 	try {
-		$query = "INSERT INTO `account` SET  `full_name`=?, `username`=?, `password`=?, `phone_number`=?, `email`=?, `po_box`=?, `addres`=?";
-		$stmt = $dbc->prepare($query);
-		$stmt->bindParam(1, $_POST['txt_fname']);
-		$stmt->bindParam(2, $_POST['txt_uname']);
-		$stmt->bindParam(3,md5($_POST['txt_pwd'])); 
-		$stmt->bindParam(4, $_POST['txt_pnumber']);
-		$stmt->bindParam(5, $_POST['txt_email']);
-		$stmt->bindParam(6, $_POST['txt_pbox']);
-		$stmt->bindParam(7, $_POST['txt_adress']);
-		if($stmt->execute()) {
+    $txt_fname =mysqli_real_escape_string($con, $_POST['txt_fname']);
+		$txt_uname =	mysqli_real_escape_string($con,$_POST['txt_uname'] );
+    $pass=md5($_POST['txt_pwd']);
+		$txt_pnumber =mysqli_real_escape_string($con,$_POST['txt_pnumber'] );
+		$txt_email =mysqli_real_escape_string($con, $_POST['txt_email'] );
+		$txt_pbox =	mysqli_real_escape_string($con,$_POST['txt_pbox'] );
+		$txt_adress =mysqli_real_escape_string($con, $_POST['txt_adress']);
+    $sql = "INSERT INTO `account` SET  `full_name`=$txt_fname, `username`=$txt_uname, `password`=$pass, `phone_number`=$txt_pnumber, `email`=$txt_email, `po_box`=$txt_pbox, `addres`=$txt_adress";
+		if ($con->query($sql) === TRUE) {
 			echo "<script>alert('Account Registered.');location.href='login.php'</script>";
-		} else {}
+		} else {
+			echo "Error: <br>" . $conn->error;
+		}
+
+
+		// $query = "INSERT INTO `account` SET  `full_name`=?, `username`=?, `password`=?, `phone_number`=?, `email`=?, `po_box`=?, `addres`=?";
+		// $stmt = $dbc->prepare($query);
+		// $stmt->bindParam(1, $_POST['txt_fname']);
+		// $stmt->bindParam(2, $_POST['txt_uname']);
+		// $stmt->bindParam(3,md5($_POST['txt_pwd'])); 
+		// $stmt->bindParam(4, $_POST['txt_pnumber']);
+		// $stmt->bindParam(5, $_POST['txt_email']);
+		// $stmt->bindParam(6, $_POST['txt_pbox']);
+		// $stmt->bindParam(7, $_POST['txt_adress']);
+		// if($stmt->execute()) {
+		// 	echo "<script>alert('Account Registered.');location.href='login.php'</script>";
+		// } else {}
 	} catch(PDOException $e) {
 		echo "Error: " . $e->getMessage();
 	}
+}
 } 
 ?>
 <!doctype html>

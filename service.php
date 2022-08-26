@@ -13,13 +13,22 @@ include 'auth_session.php';
 <?php
 if(isset($_POST['submit_btn'])) {
 	require 'db/db.php';
+	require 'db/config.php';
 	try {
-		$query = "INSERT INTO service SET name=?";
-		$stmt = $dbc->prepare($query);
-		$stmt->bindParam(1, $_POST['name']);
-		if($stmt->execute()) {
-			echo "<script>alert('New Service Saved.');location.href='admin.php'</script>";
-		} else {}
+		$name =mysqli_real_escape_string($con, $_POST['name']);
+		$sql = "INSERT INTO service SET name=$name";
+		if ($con->query($sql) === TRUE) {
+			echo "<script>alert('New service Saved.');location.href='admin.php'</script>";
+		} else {
+			echo "Error:<br>" . $conn->error;
+		}
+
+		// $query = "INSERT INTO service SET name=?";
+		// $stmt = $dbc->prepare($query);
+		// $stmt->bindParam(1, $_POST['name']);
+		// if($stmt->execute()) {
+		// 	echo "<script>alert('New Service Saved.');location.href='admin.php'</script>";
+		// } else {}
 	} catch(PDOException $e) {
 		echo "Error: " . $e->getMessage();
 	}
