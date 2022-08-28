@@ -35,7 +35,15 @@ include 'auth_session.php';
 				while($row=$stmt->fetch(PDO::FETCH_ASSOC)) {
 					extract($row);
 				echo "<tr>";
-				echo "<td><a href='detail.php?uid={$uid}'>{$uid}</a></td>";
+				echo "<td>";
+				?>
+				<form action="detail.php" method="post">
+					<input type="hidden" name="uid" value=<?php echo $uid; ?>>
+					<input type="submit" value=<?php echo $uid; ?>>
+				</form>
+				<?php
+				echo "</td>";
+				// echo "<td><a href='detail.php?uid={$uid}'>{$uid}</a></td>";
 				echo "<td>{$full_name }</td>";
 				echo "<td>{$username}</td>";
 				echo "<td>{$phone_number}</td>";

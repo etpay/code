@@ -52,9 +52,9 @@ include 'auth_session.php';
                         <div class="col-md-6">
 
 				<?php
-				if(isset($_GET['cu_id'])) {
+				if(isset($_POST['cu_id'])) {
 					require 'db/config.php';
-					mysqli_query($con,"UPDATE  commit SET paid=true WHERE cu_id =".$_GET['cu_id']); 
+					mysqli_query($con,"UPDATE  commit SET paid=true WHERE cu_id =".$_POST['cu_id']); 
 				}
 				echo "This Month and year is</br>";
 				echo date("m-Y");
@@ -110,7 +110,16 @@ include 'auth_session.php';
 				echo "<td>{$wday}</td>";
 				$total = ($row['electric'] + $row['telecom'] + $row['water']) ;
 				echo "<td>{$total}</td>";
-				echo "<td><a href='edit.php?cu_id={$cu_id}'>New Month</a> </td>";
+				// echo "<td><a href='edit.php?cu_id={$cu_id}'>New Month</a> </td>";
+				echo "<td>";
+				?>
+							<form action="edit.php" method="post">
+								<input type="hidden" name="cu_id" value=<?php echo $cu_id; ?>>
+								<input type="submit" value="New Month">
+							</form>
+							<?php
+			
+			echo "</td>";
 				echo "</tr>";
 				}
 				} catch(PDOException $e) {

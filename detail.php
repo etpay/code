@@ -16,9 +16,9 @@ include 'auth_session.php';
 <body>
 		
 		<?php
-		if(isset($_GET['uid'])) {
+		if(isset($_POST['uid'])) {
 		include "db/config.php";    
-		$cid=$_GET['uid'];
+		$cid=$_POST['uid'];
 		$sql_query = "select * from partner where cid='".$cid."'";
 		$result = mysqli_query($con,$sql_query);
 		$row = mysqli_fetch_array($result);
@@ -58,7 +58,7 @@ include 'auth_session.php';
 		try {
 		echo '<div class="table-responsive">';
     $ty=['','Ethio Telecom','Elpa','Water'];
-    $cid=$_GET['uid'];
+    $cid=$_POST['uid'];
 	$query = "SELECT * FROM `payment` WHERE `cid`='".$cid."'";
 	$stmt = $dbc->prepare($query);
 	$stmt->execute();

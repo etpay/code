@@ -38,9 +38,9 @@ include 'auth_session.php';
                         <div class="row">
                             <div class="col-md-7">
 
-                                <form  autocomplete="off"  action="" method="GET">
+                                <form  autocomplete="off"  action="" method="post">
                                     <div class="input-group mb-3">
-                                        <input type="date" name="search" required value="<?php if(isset($_GET['search'])){echo $_GET['search']; } ?>" class="form-control" placeholder="Search data">
+                                        <input type="date" name="search" required value="<?php if(isset($_POST['search'])){echo $_POST['search']; } ?>" class="form-control" placeholder="Search data">
                                         <button type="submit" class="btn btn-primary">Search</button>
                                         <input type="submit" class="button" value="print" onClick="window.print()" />
                                         <a href="admin.php">Back</a> </br>
@@ -78,9 +78,9 @@ include 'auth_session.php';
                                 <?php 
                                     $con = mysqli_connect("localhost","root","","p1");
 
-                                    if(isset($_GET['search']))
+                                    if(isset($_POST['search']))
                                     {
-                                        $filtervalues = $_GET['search'];
+                                        $filtervalues = $_POST['search'];
                                         $query = "SELECT * FROM commit WHERE CONCAT(deadline ) LIKE '%$filtervalues%' ";
                                        
                                         $query_run = mysqli_query($con, $query);

@@ -88,7 +88,7 @@ $cid=$_SESSION['cid'];
 	echo "<td>{$wday}</td>";
 	$total = ($row['electric'] + $row['telecom'] + $row['water']) ;
 	echo "<td>{$total}</td>";
-	echo "<td><a href='edit.php?cu_id={$cu_id}'>New Month</a> </td>";
+	// echo "<td><a href='edit.php?cu_id={$cu_id}'>New Month</a> </td>";
 	
 
 

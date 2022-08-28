@@ -107,9 +107,9 @@ if(isset($_POST['submit_btn'])) {
 
         <form  autocomplete="off"  action="" method="POST">
             <?php
-            if(isset($_GET['cu_id'])) {
+            if(isset($_POST['cu_id'])) {
                 require 'db/config.php';
-                $result = mysqli_query($con,"SELECT cu_id,name,partner FROM commit WHERE cu_id =".$_GET['cu_id']);
+                $result = mysqli_query($con,"SELECT cu_id,name,partner FROM commit WHERE cu_id =".$_POST['cu_id']);
                 $row = mysqli_fetch_row($result);
             }
 		
