@@ -33,9 +33,15 @@ else { exit("INVALID TOKEN"); }
 	require 'db/db.php';
 	require 'db/config.php';
   $password = $_POST['txt_pwd'];
-  
-  if( strlen($password) < 8) {
-    echo 'Password should be at least 8 characters in length.';
+   // Validate password strength
+  $uppercase = preg_match('@[A-Z]@', $password);
+  $lowercase = preg_match('@[a-z]@', $password);
+  $number    = preg_match('@[0-9]@', $password);
+  $specialchars = preg_match('@[^\w]@', $password);
+
+  if(!$uppercase || !$lowercase || !$number || !$specialchars || strlen($password) < 8) {
+    echo 'Password should be at least 8 characters in length and should include at least one upper case letter, one number, and one special character.';
+
   }
   else{
     echo 'Password is Strong';
@@ -44,7 +50,7 @@ else { exit("INVALID TOKEN"); }
     $txt_uname =mysqli_real_escape_string($con,$_POST['txt_uname']);
     $pass=md5($password);
     $sql = "INSERT INTO `users` SET  `name`=$txt_fname, `username`=$txt_uname, `password`=$pass";
-		if ($con->query($sql) === TRUE) {
+		if ($con->query($sql) == TRUE) {
       echo "<script>alert('Account Registered.');</script>";
 		} else {
       echo "Error: <br>" . $conn->error;
