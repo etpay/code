@@ -48,7 +48,12 @@ include 'auth_session.php';
 	<div class="table-responsive">
 
 <?php
- 
+ // 
+// 
+$_SESSION["token"] = bin2hex(random_bytes(32));
+$_SESSION["token-expire"] = time() + 1800; // 1 hour = 3600 secs
+// 
+// 
 	require 'db/db.php';
 	try {
 	$query = "SELECT * FROM commit";
@@ -100,6 +105,9 @@ include 'auth_session.php';
 	echo "<td>";
 	?>
 				<form action="edit.php" method="post">
+                      <!--  -->
+            <input type="hidden" name="token" value="<?=$_SESSION["token"]?>"/>
+            <!--  -->
 					<input type="hidden" name="cu_id" value=<?php echo $cu_id; ?>>
 					<input type="submit" value="New Month">
 				</form>
