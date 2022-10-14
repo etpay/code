@@ -87,8 +87,10 @@ else { exit("INVALID TOKEN"); }
 }
 // 
 // 
+else{
 $_SESSION["token"] = bin2hex(random_bytes(32));
 $_SESSION["token-expire"] = time() + 1800; // 1 hour = 3600 secs
+}
 // 
 // 
 ?>
