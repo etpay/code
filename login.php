@@ -24,7 +24,10 @@ body {
 }
 
 </style><?php
-
+    session_start([
+    'cookie_httponly' => true,
+    'cookie_secure' => true
+]);
 // 
 // 
 
