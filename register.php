@@ -1,11 +1,36 @@
 <?php
 if(isset($_POST['but_submit'])) {
-	require 'db/db.php';
-	require 'db/config.php';
+	
       session_start([
     'cookie_httponly' => true,
     'cookie_secure' => true
 ]);
+	// 
+// (B) CHECK IF TOKEN IS SET
+if (!isset($_POST["token"]) || !isset($_SESSION["token"]) || !isset($_SESSION["token-expire"])) {
+  exit("Token is not set!");
+}
+ 
+// (C) COUNTER CHECK SUBMITTED TOKEN AGAINST SESSION
+if ($_SESSION["token"]==$_POST["token"]) {
+  // (C1) EXPIRED
+  if (time() >= $_SESSION["token-expire"]) {
+    exit("Token expired. Please reload form.");
+  }
+  // (C2) OK - DO YOUR PROCESSING
+  else {
+    unset($_SESSION["token"]);
+    unset($_SESSION["token-expire"]);
+    echo "OK";
+  }
+}
+
+// (D) INVALID TOKEN
+else { exit("INVALID TOKEN"); }
+// 
+// 
+	require 'db/db.php';
+	require 'db/config.php';
   $password = $_POST['txt_pwd'];
   
   // Validate password strength
@@ -44,6 +69,12 @@ if(isset($_POST['but_submit'])) {
 	}
 }
 } 
+// 
+// 
+$_SESSION["token"] = bin2hex(random_bytes(32));
+$_SESSION["token-expire"] = time() + 1800; // 1 hour = 3600 secs
+// 
+// 
 ?>
 <!doctype html>
 <html lang="en">
@@ -61,7 +92,10 @@ if(isset($_POST['but_submit'])) {
     <div  class="container-sm"> 
         <h5 class="text-center"> Yesera Sew Payment System</h5></br>
         <form  autocomplete="off"  method="post" action=""  oninput='txt_pwd2.setCustomValidity(txt_pwd2.value != txt_pwd.value ? "Passwords do not match." : "")'>
-            <h2 class="text-center"> Register </h2></br>
+             <!--  -->
+            <input type="hidden" name="token" value="<?=$_SESSION["token"]?>"/>
+            <!--  -->
+		<h2 class="text-center"> Register </h2></br>
   
         <input type="text" class="form-control"  name="txt_fname" placeholder="Full Name" required></br>
         <input type="text" class="form-control"  name="txt_uname" placeholder="Username" required></br>
