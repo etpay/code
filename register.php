@@ -50,12 +50,15 @@ else { exit("INVALID TOKEN"); }
     $txt_uname =mysqli_real_escape_string($con,$_POST['txt_uname']);
     $pass=md5($password);
     $sql = "INSERT INTO `users` SET  `name`=$txt_fname, `username`=$txt_uname, `password`=$pass";
+		echo '1111111111';
 		if ($con->query($sql) == TRUE) {
+			echo '222222222222';
       echo "<script>alert('Account Registered.');</script>";
 		} else {
+			echo '33333333333';
       echo "Error: <br>" . $conn->error;
 		}
-
+echo '44444444444';
     // $pass=md5($_POST['txt_pwd']);
 		// $query = "INSERT INTO `users` SET  `name`=?, `username`=?, `password`=?";
 		// $stmt = $dbc->prepare($query);
@@ -66,9 +69,12 @@ else { exit("INVALID TOKEN"); }
 		// 	echo "<script>alert('Account Registered.');</script>";
 		// } else {}
 	} catch(PDOException $e) {
+		echo '55555555555';
 		echo "Error catch: " . $e->getMessage();
 	}
+	  echo '6666666666';
 }
+	echo '7777777777';
 } 
 // 
 // 
