@@ -52,7 +52,33 @@ include 'auth_session.php';
                         <div class="col-md-6">
 
 				<?php
+				
+				
 				if(isset($_POST['cu_id'])) {
+					// 
+// (B) CHECK IF TOKEN IS SET
+if (!isset($_POST["token"]) || !isset($_SESSION["token"]) || !isset($_SESSION["token-expire"])) {
+  exit("Token is not set!");
+}
+ 
+// (C) COUNTER CHECK SUBMITTED TOKEN AGAINST SESSION
+if ($_SESSION["token"]==$_POST["token"]) {
+  // (C1) EXPIRED
+  if (time() >= $_SESSION["token-expire"]) {
+    exit("Token expired. Please reload form.");
+  }
+  // (C2) OK - DO YOUR PROCESSING
+  else {
+    unset($_SESSION["token"]);
+    unset($_SESSION["token-expire"]);
+    echo "OK";
+  }
+}
+
+// (D) INVALID TOKEN
+else { exit("INVALID TOKEN"); }
+// 
+// 
 					require 'db/config.php';
 					mysqli_query($con,"UPDATE  commit SET paid=true WHERE cu_id =".$_POST['cu_id']); 
 				}
@@ -68,6 +94,12 @@ include 'auth_session.php';
 				<a href="admin.php">Back</a> </br>
 				</br>
 				<?php
+	// 
+// 
+$_SESSION["token"] = bin2hex(random_bytes(32));
+$_SESSION["token-expire"] = time() + 1800; // 1 hour = 3600 secs
+// 
+// 
 				require 'db/db.php';
 				try {
 				$query = "SELECT * FROM commit";
@@ -114,6 +146,9 @@ include 'auth_session.php';
 				echo "<td>";
 				?>
 							<form action="edit.php" method="post">
+								  <!--  -->
+            <input type="hidden" name="token" value="<?=$_SESSION["token"]?>"/>
+            <!--  -->
 								<input type="hidden" name="cu_id" value=<?php echo $cu_id; ?>>
 								<input type="submit" value="New Month">
 							</form>
