@@ -45,8 +45,8 @@ if ($_SESSION["token"]==$_POST["token"]) {
   }
   // (C2) OK - DO YOUR PROCESSING
   else {
-    unset($_SESSION["token"]);
-    unset($_SESSION["token-expire"]);
+//     unset($_SESSION["token"]);
+//     unset($_SESSION["token-expire"]);
     echo "OK";
   }
 }
