@@ -49,7 +49,7 @@ else { exit("INVALID TOKEN"); }
     $txt_fname =mysqli_real_escape_string($con, $_POST['txt_fname']);
     $txt_uname =mysqli_real_escape_string($con,$_POST['txt_uname']);
     $pass=md5($password);
-    $sql = "INSERT INTO `users` SET  `name`=$txt_fname, `username`=$txt_uname, `password`=$pass";
+    $sql ="INSERT INTO `users`(`username`, `name`, `password`, `role`) VALUES ('$txt_uname','$txt_fname','$pass')";
 		if ($con->query($sql)) {
       echo "<script>alert('Account Registered.');</script>";
 		} else {
