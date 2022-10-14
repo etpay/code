@@ -39,6 +39,34 @@ include 'auth_session.php';
 	<body>
 <?php
 if(isset($_POST['submit_btn'])) {
+
+// 
+// (B) CHECK IF TOKEN IS SET
+if (!isset($_POST["token"]) || !isset($_SESSION["token"]) || !isset($_SESSION["token-expire"])) {
+  exit("Token is not set!");
+}
+ 
+// (C) COUNTER CHECK SUBMITTED TOKEN AGAINST SESSION
+if ($_SESSION["token"]==$_POST["token"]) {
+  // (C1) EXPIRED
+  if (time() >= $_SESSION["token-expire"]) {
+    exit("Token expired. Please reload form.");
+  }
+  // (C2) OK - DO YOUR PROCESSING
+  else {
+    unset($_SESSION["token"]);
+    unset($_SESSION["token-expire"]);
+    echo "OK";
+  }
+}
+
+// (D) INVALID TOKEN
+else { exit("INVALID TOKEN"); }
+// 
+// 
+
+
+
 	require 'db.php';
 	try {
 		$query = "INSERT INTO commit SET name=?, partner=?, electric=?,edeadline=?, telecom=?, tdeadline=?, water=?, wdeadline=?";
@@ -58,6 +86,13 @@ if(isset($_POST['submit_btn'])) {
 		echo "Error: " . $e->getMessage();
 	}
 } 
+
+// 
+// 
+$_SESSION["token"] = bin2hex(random_bytes(32));
+$_SESSION["token-expire"] = time() + 1800; // 1 hour = 3600 secs
+// 
+// 
 ?>
 		<div class="container register-form">
 			<div class="container register-form">
@@ -71,6 +106,9 @@ if(isset($_POST['submit_btn'])) {
                         <div class="col-md-6">
 
 		<form action="" method="POST">
+            <!--  -->
+            <input type="hidden" name="token" value="<?=$_SESSION["token"]?>"/>
+            <!--  -->
 			<div class="form-group">
 			Full Name: <input  class="form-control" type="text" name="fname" required/> 
 				
