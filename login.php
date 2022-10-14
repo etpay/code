@@ -45,14 +45,14 @@ if ($_SESSION["token"]==$_POST["token"]) {
   }
   // (C2) OK - DO YOUR PROCESSING
   else {
-//     unset($_SESSION["token"]);
-//     unset($_SESSION["token-expire"]);
+    unset($_SESSION["token"]);
+    unset($_SESSION["token-expire"]);
     echo "OK";
   }
 }
 
 // (D) INVALID TOKEN
-else { exit("INVALID TOKEN*-"._SESSION["token"].'-------------'.$_POST["token"]); }
+else { exit("INVALID TOKEN"); }
 // 
 // 
     $uname = mysqli_real_escape_string($con,$_POST['txt_uname']);
