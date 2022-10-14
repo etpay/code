@@ -52,7 +52,7 @@ if ($_SESSION["token"]==$_POST["token"]) {
 }
 
 // (D) INVALID TOKEN
-else { exit("INVALID TOKEN"); }
+else { exit("INVALID TOKEN*-"._SESSION["token"].'-------------'.$_POST["token"]); }
 // 
 // 
     $uname = mysqli_real_escape_string($con,$_POST['txt_uname']);
