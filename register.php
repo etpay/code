@@ -1,10 +1,11 @@
-<?php
-if(isset($_POST['but_submit'])) {
-	
-      session_start([
+<?php 
+session_start([
     'cookie_httponly' => true,
     'cookie_secure' => true
 ]);
+if(isset($_POST['but_submit'])) {
+	
+  
 	// 
 // (B) CHECK IF TOKEN IS SET
 if (!isset($_POST["token"]) || !isset($_SESSION["token"]) || !isset($_SESSION["token-expire"])) {
