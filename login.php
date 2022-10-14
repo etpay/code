@@ -85,6 +85,7 @@ else { exit("INVALID TOKEN*-"._SESSION["token"].'-------------'.$_POST["token"])
     }
 
 }
+else{
 // 
 // 
 
@@ -93,6 +94,7 @@ $_SESSION["token-expire"] = time() + 1800; // 1 hour = 3600 secs
 
 // 
 // 
+}
 ?>
 <body>
     <div id="login">
@@ -101,7 +103,7 @@ $_SESSION["token-expire"] = time() + 1800; // 1 hour = 3600 secs
             <div id="login-row" class="row justify-content-center align-items-center">
                 <div id="login-column" class="col-md-6">
                     <div id="login-box" class="col-md-12">
-                        <form  autocomplete="off"  id="login-form" class="form" action="login-cal.php" method="post">
+                        <form  autocomplete="off"  id="login-form" class="form" action="" method="post">
                             <!--  -->
             <input type="hidden" name="token" value="<?=$_SESSION["token"]?>"/>
             <!--  -->
