@@ -24,6 +24,7 @@ body {
 }
 
 </style><?php
+header_remove("X-Powered-By");
 include "db/config.php";
     session_start([
     'cookie_httponly' => true,
