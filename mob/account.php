@@ -1,4 +1,5 @@
 <?php
+header_remove("X-Powered-By");
 	require '../db/config.php';
 if(isset($_POST['but_submit'])) {
 	require '../db/db.php';
